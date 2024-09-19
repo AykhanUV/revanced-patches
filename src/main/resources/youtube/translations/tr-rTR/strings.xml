@@ -296,17 +296,15 @@ Siz sekmesi→ Kanalı görüntüle→ Menü→ Ayarlar"</string>
     <string name="revanced_extended_settings_reset">Sıfırla</string>
     <string name="revanced_extended_settings_search_title">Arama %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary_off">İndirme düğmesi yerel uygulama içi indiriciyi açar</string>
-    <string name="revanced_external_downloader_action_summary_on">İndirme düğmesi harici indiricinizi açar</string>
-    <string name="revanced_external_downloader_action_title">İndirme eylem düğmesini kullan</string>
     <string name="revanced_external_downloader_dialog_title">Harici indirici</string>
     <string name="revanced_external_downloader_not_installed">Yüklü değil</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s yüklü değil.
 Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Dikkat</string>
     <string name="revanced_external_downloader_not_installed_warning">%s kurulmamış. Lütfen önce indiriniz.</string>
-    <string name="revanced_external_downloader_package_name_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
-    <string name="revanced_external_downloader_package_name_title">Harici indirici paket adı</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Oynatma listesi indirici paket ismi</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Video indirici paket adı</string>
     <string name="revanced_force_fullscreen_summary">"Aşağıdaki durumlarda video tam ekrana geçecektir:
 
 • Yorumlardaki zaman damgasına tıklandığında.
@@ -436,8 +434,6 @@ Mağaza"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">\'Sizin için\' rafları gizlenmiyor.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">\'Sizin için\' rafları gizleniyor.</string>
     <string name="revanced_hide_for_you_shelf_title">\'Sizin için\' rafını gizle</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Tam ekran reklamlar engellendi. (İletişim Türü: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Tam ekran reklamlar kapatıldı.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları görünür.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizli.</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizle</string>
@@ -519,6 +515,8 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_live_chat_replay_button_summary_off">Canlı sohbeti tekrar oynat düğmesi görünür.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Canlı sohbeti tekrar oynat düğmesi gizlidir.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Canlı sohbet tekrarı butonunu gizle</string>
+    <string name="revanced_hide_low_views_video_summary">Abone olunmayan kanallardan yüklenen ana sayfa yayınlarında 1.000\'den az izlenen videoları gizleyin.</string>
+    <string name="revanced_hide_low_views_video_title">Az izlenen videoları gizle</string>
     <string name="revanced_hide_medical_panel_summary_off">Tıbbi bilgi içeren paneller gizlenmiyor.</string>
     <string name="revanced_hide_medical_panel_summary_on">Tıbbi bilgi içeren paneller gizleniyor.</string>
     <string name="revanced_hide_medical_panel_title">Tıbbi panelleri gizle</string>
@@ -573,9 +571,9 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_player_collapse_button_summary_off">Videoyu küçült butonu gösteriliyor</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Videoyu küçült butonu devre dışı.</string>
     <string name="revanced_hide_player_collapse_button_title">Sol üstteki videoyu küçültme butonunu gizle</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">\"Ambiyans modu\" menüsü gösteriliyor.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">\"Ambiyans modu\" menüsü gizleniyor.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">\"Ambiyans modu\" menüsünü gizle</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambiyans modu menüsü görünür.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambiyans modu menüsü gizli.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ambiyans mod menüsünü gizle</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">\"Ses Parçası\" menüsü gösteriliyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">\"Ses Parçası\" menüsü gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ses parçası menüsünü gizle</string>
@@ -618,6 +616,9 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_player_flyout_menu_report_summary_off">\"Bildir\" butonu gösteriliyor.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">\"Bildir\" butonu gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Rapor Menüsünü Sakla</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Uyku zamanlayıcısı menüsü görünür.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Uyku zamanlayıcısı menüsü gizli.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Uyku zamanlayıcısı menüsünü gizle</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">\"Sabit ses\" butonu gösteriliyor.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">\"Sabit ses\" butonu gizleniyor.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">\"Sabit ses\" butonunu gizle</string>
@@ -648,6 +649,9 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_preview_comment_type_off">Bu, yorum bölümünün boyutunu değiştirir, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak imkansızdır.</string>
     <string name="revanced_hide_preview_comment_type_on">Bu, yorum bölümünün boyutunu değiştirmez, dolayısıyla yorum bölümünde canlı sohbet tekrarını açmak mümkündür.</string>
     <string name="revanced_hide_preview_comment_type_title">Önizleme yorumu tipini gizle</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Promosyon uyarı afişi gösteriliyor.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Promosyon uyarı afişi gizli.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Promosyon uyarı afişini gizle</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Yorumlar butonu gösteriliyor.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Yorumlar butonu gizleniyor.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">\"Yorumlar\" butonunu gizle</string>
@@ -741,6 +745,7 @@ Altyazılar"</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">\"Beğenme\" butonu gösteriliyor.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">\"Beğenme\" butonu gizleniyor.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Beğenmeme butonunu gizle</string>
+    <string name="revanced_hide_shorts_floating_button_title">Butonları gizle</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video bağlantı etiketi gösteriliyor</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video bağlantı etiketi gizlendi.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Tüm video bağlantısı etiketini gizle</string>
@@ -756,9 +761,6 @@ Altyazılar"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">Canlı sohbet başlığı gizlenmedi.\n\nBaşlıktaki geri düğmesi gizlenmeyecek.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Canlı sohbet başlığı gizlendi.\n\nBaşlıktaki geri düğmesi gizlenmeyecek.</string>
     <string name="revanced_hide_shorts_live_header_title">Canlı sohbet başlığını gizle</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli.</string>
-    <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Gezinme çubuğu gösteriliyor</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Gezinme çubuğu gizli.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Gezinme çubuğunu gizle</string>
@@ -780,9 +782,6 @@ Altyazılar"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Sesi oynatma listesine kaydetme butonu gösteriliyor.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Sesi oynatma listesine kaydetme butonu gizleniyor</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Sesi oynatma listesine kaydetme butonunu gizle</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">Arama önerileri gösteriliyor</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">Arama önerileri gizleniyor</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">Arama önerilerini gizle</string>
     <string name="revanced_hide_shorts_share_button_summary_off">\"Paylaş\" butonu gösteriliyor.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">\"Paylaş\" butonu gizleniyor.</string>
     <string name="revanced_hide_shorts_share_button_title">Paylaş butonunu gizle</string>
@@ -805,6 +804,8 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor."</str
     <string name="revanced_hide_shorts_shop_button_summary_off">Mağaza düğmesi görünür.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Mağaza düğmesi gizli.</string>
     <string name="revanced_hide_shorts_shop_button_title">Mağaza düğmesini gizle</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">Alışveriş butonu gizli.</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Alışveriş butonunu gizle</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Ses düğmesi görünür.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Ses düğmesi gizli.</string>
     <string name="revanced_hide_shorts_sound_button_title">Ses düğmesini gizle</string>
@@ -823,6 +824,9 @@ Bilinen sorun: Arama sonuçlarındaki resmi başlıklar da gizlenebiliyor."</str
     <string name="revanced_hide_shorts_toolbar_summary_off">Araç çubuğu gösteriliyor.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">Araç çubuğu gizli.</string>
     <string name="revanced_hide_shorts_toolbar_title">Araç çubuğunu göster</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">Trend butonu görünür.</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">Trend butonu gizli.</string>
+    <string name="revanced_hide_shorts_trends_button_title">Trends butonunu gizle</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Başlık görünür</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Başlık gizli</string>
     <string name="revanced_hide_shorts_video_title_title">Video başlığını gizle</string>
@@ -970,6 +974,9 @@ Geri almak için dokunun ve basılı tutun."</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Beyaz liste iletişim kutusunu açmak için dokunun.
 Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</string>
     <string name="revanced_overlay_button_whitelist_title">Beyaz liste düğmesini göster</string>
+    <string name="revanced_override_playlist_download_button_title">Oynatma listesi indirme butonunu geçersiz kıl</string>
+    <string name="revanced_override_video_download_button_summary_on">İndirme düğmesi harici indiricinizi açar.</string>
+    <string name="revanced_override_video_download_button_title">Video indirme butonunu geçersiz kıl</string>
     <string name="revanced_patches_excluded">Hariç tutulan</string>
     <string name="revanced_patches_included">Dahil</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -988,8 +995,6 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_preference_category_quick_actions">Hızlı eylemler</string>
     <string name="revanced_preference_category_recommended_video">Önerilen video</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts rafları</string>
-    <string name="revanced_preference_category_spoof_client_about">Hakkında</string>
-    <string name="revanced_preference_category_spoof_client_options">İstemci ayarlarını taklit et</string>
     <string name="revanced_preference_category_tool_used">Araç kullanıldı</string>
     <string name="revanced_preference_category_view_counts_filter">İzlenme sayısı filtresi</string>
     <string name="revanced_preference_screen_account_menu_summary">Hesap menüsünde ve siz sekmesinde gizli veya göster.</string>
@@ -1043,8 +1048,6 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_preference_screen_shorts_player_summary">Shorts oynatıcıdaki bileşenleri gizleyin veya gösterin.</string>
     <string name="revanced_preference_screen_shorts_player_title">Shorts oynatıcı</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
-    <string name="revanced_preference_screen_spoof_client_summary">Oynatma sorunlarını önlemek için istemciyi taklit et.</string>
-    <string name="revanced_preference_screen_spoof_client_title">İstemciyi taklit et</string>
     <string name="revanced_preference_screen_swipe_controls_title">Kaydırma kontrolleri</string>
     <string name="revanced_preference_screen_toolbar_summary">Araç çubuğu düğmeleri, arama çubuğu, başlık gibi araç çubuğunda bulunan bileşenleri gizleyin veya değiştirin.</string>
     <string name="revanced_preference_screen_toolbar_title">Araç Çubuğu</string>
@@ -1121,7 +1124,6 @@ Kısıtlama: Gizli modda beğenmeme sayıları görünmeyebilir."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike API\'si mevcut değilse uyarı gösterilmiyor.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike API\'si mevcut değilse uyarı gösteriliyor.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, tracking query parametrelerini URL\'lerden kaldırır.</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
     <string name="revanced_sb_about">Hakkında</string>
@@ -1360,75 +1362,8 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
 Bu, uygulamanın görünümünü ve özelliklerini değiştirecektir ancak bilinmeyen yan etkiler ortaya çıkabilir.
 
 Daha sonra kapatılırsa kullanıcı arayüzü hatalarını önlemek için uygulama verilerinin temizlenmesi önerilir."</string>
-    <string name="revanced_spoof_client_fallback_title">Oynatılamaz video</string>
-    <string name="revanced_spoof_client_general_title">Genel</string>
-    <string name="revanced_spoof_client_livestream_title">Canlı yayınlar</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Android Test Paketi</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_shorts_title">Shorts, Klipler</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">Taklit edilen istemci meraklılar için istatiklerde gösterilmiyor.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">Taklit edilen istemci meraklılar için istatiklerde gösteriliyor.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">Meraklılar için istatiklerde göster</string>
-    <string name="revanced_spoof_client_summary_off">"İstemci taklit edilmiyor. Video oynatma çalışmayabilir."</string>
-    <string name="revanced_spoof_client_summary_on">İstemci taklit ediliyor.</string>
-    <string name="revanced_spoof_client_title">İstemciyi taklit et</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"İstemciyi Android Testsuite'e taklit etme.
-
-Yan etkiler şunları içerir:
-• HDR video yok.
-• Ses parçası menüsü eksik.
-• Altyazılar mevcut olmayabilir.
-• İndirme düğmesi eksik.
-• Bitiş ekranı kartları eksik.
-• Düşük kaliteli zaman çubuğu küçük resmi."</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Android Test Paketi</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"İstemciyi Android TV'ye (YouTube TV) taklit etme.
-
-Yan etkiler şunları içerir:
-• HDR video yok.
-• Ses parçası menüsü eksik.
-• Altyazılar mevcut olmayabilir.
-• İndirme düğmesi eksik.
-• Düşük kaliteli arama çubuğu küçük resmi.
-• Bazı canlı yayınlar oynatma için desteklenmez."</string>
-    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"İstemciyi Android VR'a taklit etme.
-
-Yan etkiler şunları içerir:
-• HDR video yok.
-• Video aksiyon çubuğunda indirme butonu gizlidir.
-• Duraklatılan videolar rastgele devam ettirilebilir.
-• Düşük kaliteli Shorts arama çubuğu küçük resimleri.
-• Çocuk videoları oynatılmıyor."</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_summary">"İstemciyi iOS'a taklit et.
-
-Yan etkiler şunları içerir:
-• HDR video yalnızca AV1 codec bileşeninde desteklenir.
-• İzleme geçmişi bir marka hesabıyla çalışmaz.
-• Canlı yayınlar yalnızca ses olarak oynatılamaz."</string>
-    <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Cihaz boyutlarını maksimum değere kadar taklit eder. Yüksek cihaz boyutları gerektiren bazı videolarda yüksek kalitenin kilidi açılabilir ancak tüm videolarda bu durum geçerli olmayabilir."</string>
     <string name="revanced_spoof_device_dimensions_title">Farklı cihaz boyutlarını taklit et</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Akış videoları için oynatıcı parametresi sahteciliği yapılmıyor
-
-Bilinen sorun: Akış videoları, oynatma sorunlarıyla karşılaşmadan önce 1 dakikadan daha kısa bir süre oynatılacak"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Akış videoları için oynatıcı parametresi sahtekarlığı 
-
-Bilinen sorun: Otomatik olarak oynatılan yayın videoları izleme geçmişinizde görünecek"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Ana sayfada da oynatıcı parametresini taklit et</string>
-    <string name="revanced_spoof_player_parameter_summary">"Oynatma sorunlarını önlemek için oynatıcı parametrelerini taklit eder
-
-Bilinen sorunlar:
-• Gelişmiş bit hızı mevcut değildir
-• Ücretli videolar için arama çubuğu küçük resimleri yoktur
-• Çevrimdışı indirmeler çalışmayabilir
-• Video son İzlenen kısımdan başlamayabilir"</string>
-    <string name="revanced_spoof_player_parameter_title">Oynatıcı parametresini taklit et</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Kaydırma hareketleri \'Kilit ekranı\' modunda devre dışıdır.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Kaydırma hareketleri \'Kilit ekranı\' modunda etkindir.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">\'Kilit ekranı\' modundaki kaydırma hareketleri</string>

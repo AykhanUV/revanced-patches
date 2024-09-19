@@ -52,7 +52,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Jakość filmu</string>
-    <string name="revanced_append_time_stamp_information_type_title">Informacja</string>
+    <string name="revanced_append_time_stamp_information_type_title">Typ informacji</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Oświetlenie kinowe w trybie oszczędzania baterii jest wyłączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Oświetlenie kinowe w trybie oszczędzania baterii jest włączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Obejdź ograniczenia oświetlenia kinowego</string>
@@ -64,6 +64,9 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Wygląd przełączników</string>
+    <string name="revanced_change_share_sheet_summary_off">Aplikacji</string>
+    <string name="revanced_change_share_sheet_summary_on">Systemowy</string>
+    <string name="revanced_change_share_sheet_title">Wygląd panelu udostępniania</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Automatyczne odtwarzanie</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Domyślny</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Wstrzymywanie</string>
@@ -132,9 +135,21 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Ukryte</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Widoczne</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Wyskakujące panele w odtwarzaczu</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Włączone, gdy autoodtwarzanie jest włączone.
+
+Autoodtwarzanie może być zmienione w ustawieniach YouTube:
+Ustawienia → Autoodtwarzanie → Autoodtwarzanie następnego filmu"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Wyłączone</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Automatyczne przełączanie na playlisty mix</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Włączenie tej funkcji wyłączy automatyczne zmienianie na YouTube Mix, podczas odtwarzania muzyki z włączonym autoodtwarzaniem.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Włączona</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Wyłączona</string>
     <string name="revanced_disable_default_playback_speed_live_title">Domyślna prędkość odtwarzania podczas transmisji na żywo</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Włączona</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Wyłączona
+
+Ograniczenie: To ustawienie może nie działać dla filmów bez baneru 'Słuchaj w YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Domyślna prędkość odtwarzania dla muzyki</string>
     <string name="revanced_disable_engagement_panel_summary_off">Widoczny</string>
     <string name="revanced_disable_engagement_panel_summary_on">Ukryty</string>
     <string name="revanced_disable_engagement_panel_title">Panel zaangażowania</string>
@@ -187,6 +202,13 @@ Notki:
 • Stuknij, by przewijać
 • Stuknij i przytrzymaj, by zaznaczyć tekst"</string>
     <string name="revanced_disable_video_description_interaction_title">Wyłącz interakcje z opisami filmów</string>
+    <string name="revanced_disable_vp9_codec_summary_off">Włączone</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"Wyłączone
+
+• Maksymalną rozdzielczością filmów jest 1080p
+• Odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9
+• Aby filmy w HDR się odtwarzały, będą one nadal używać kodeka VP9"</string>
+    <string name="revanced_disable_vp9_codec_title">Wyłącz kodek VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Wyłączony</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Włączony
 
@@ -302,17 +324,18 @@ Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znak�
     <string name="revanced_extended_settings_reset">Zresetuj</string>
     <string name="revanced_extended_settings_search_title">Wyszukaj w %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary_off">Natywny przycisk od pobierania otwiera natywne pobieranie w aplikacji</string>
-    <string name="revanced_external_downloader_action_summary_on">Natywny przycisk od pobierania otwiera zewnetrzną aplikację od pobierania</string>
-    <string name="revanced_external_downloader_action_title">Zastąp przycisk od pobierania</string>
-    <string name="revanced_external_downloader_dialog_title">Aplikacja od pobierania</string>
+    <string name="revanced_external_downloader_dialog_title">Zewnętrzna aplikacja od pobierania</string>
     <string name="revanced_external_downloader_not_installed">Nie zainstalowany</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s nie jest zainstalowany.
 Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Ostrzeżenie</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Proszę go zainstalować.</string>
-    <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis</string>
-    <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nazwa pakietu aplikacji od pobierania (playlisty)</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis przy długim przytrzymaniu.</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Nazwa pakietu aplikacji od pobierania (filmy) przy długim przytrzymaniu</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
     <string name="revanced_force_fullscreen_summary">"Filmy zostaną przełączone w tryb pełnoekranowy w następujących sytuacjach:
 
 • Po rozpoczęciu filmu
@@ -428,6 +451,9 @@ Sklep"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Widoczne</string>
     <string name="revanced_hide_expandable_chip_summary_on">Ukryte</string>
     <string name="revanced_hide_expandable_chip_title">Produkty i rozdziały pod filmami</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Widoczne</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Ukryte</string>
+    <string name="revanced_hide_expandable_shelf_title">Rozszeralne półki</string>
     <string name="revanced_hide_feed_captions_button_off">Widoczny</string>
     <string name="revanced_hide_feed_captions_button_on">Ukryty</string>
     <string name="revanced_hide_feed_captions_button_title">Przycisk od napisów na stronie głównej</string>
@@ -451,8 +477,6 @@ Sklep"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">Widoczna</string>
     <string name="revanced_hide_for_you_shelf_summary_on">Ukryta</string>
     <string name="revanced_hide_for_you_shelf_title">Półka \'Dla Ciebie\'</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Zablokowano reklamy pełnoekranowe. (Typ okna: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Zamknięto reklamy pełnoekranowe.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
@@ -497,18 +521,22 @@ Ograniczenie: obrazy postów społeczności w trybie pełnoekranowym mogą być 
     <string name="revanced_hide_keyword_content_about_summary">"Strona główna / subskrypcji / wyniki wyszukiwania są filtrowane, by ukryć kontent, który zawiera słowa z filtra.
 
 Ograniczenia:
-• Niektóre Shortsy mogą nie być ukryte.
-• Niektóre elementy interfejsu użytkownika mogą nie być ukryte.
-• Wyszukiwanie słowa z filtru może nie pokazywać żadnych wyników."</string>
+• Shortsy nie mogą być ukryte poprzez nazwę kanału
+• Niektóre elementy interfejsu użytkownika mogą nie być ukryte
+• Wyszukiwanie słowa z filtru może nie pokazywać żadnych wyników"</string>
     <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Otoczenie słowa/frazy podwójnym cudzysłowem może zapobiec częściowemu dopasowywaniu tytułów filmów i nazw kanałów.&lt;br&gt;&lt;br&gt;Dla przykładu,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ukryje film: Jak działa AI?&lt;/b&gt;&lt;br&gt;, lecz nie ukryje: Co oznacza uczciwy użytek?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Uwzględnij całe wyrazy</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Włączone</string>
     <string name="revanced_hide_keyword_content_comments_title">W komentarzach</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Dopasuj pełne słowo</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Włączone</string>
     <string name="revanced_hide_keyword_content_home_title">Na stronie głównej</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Słowa i frazy, które mają być ukryte, oddzielone nowymi liniami.
+
+Słowami mogą być nazwy kanałów, jak też jakikolwiek tekst z tytułu filmu.
+
 Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkością liter (np. iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_hide_keyword_content_phrases_title">Słowa, które mają być ukryte</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Wyłączone</string>
@@ -517,8 +545,11 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Wyłączone</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Włączone</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Na stronie subskrypcji</string>
-    <string name="revanced_hide_keyword_toast_invalid_broad">Słowo \'%1$s\' ukryje wszystkie filmy.</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Nieprawidłowe słowo. Nie można użyć: \'%s\' jako filtru</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">Słowo ukryje wszystkie filmy: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common">Nie można użyć słowa: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Dodaj cudzysłowy, by użyć słowa: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">Słowo zawiera sprzeczne deklaracje: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Słowo jest za krótkie i wymaga cudzysłowu: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Widoczne</string>
     <string name="revanced_hide_latest_posts_summary_on">Ukryte</string>
     <string name="revanced_hide_latest_posts_title">Najnowsze posty</string>
@@ -534,6 +565,8 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_live_chat_replay_button_summary_off">Widoczny\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Ukryty\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Przycisk od ponownego odtwarzania czatu na żywo</string>
+    <string name="revanced_hide_low_views_video_summary">Ukrywa filmy poniżej 1000 wyświetleń ze strony głównej, które zostały przesłane z niesubskrybowanych kanałów.</string>
+    <string name="revanced_hide_low_views_video_title">Ukryj filmy z małą ilością wyświetleń</string>
     <string name="revanced_hide_medical_panel_summary_off">Widoczne</string>
     <string name="revanced_hide_medical_panel_summary_on">Ukryte</string>
     <string name="revanced_hide_medical_panel_title">Panele medyczne</string>
@@ -633,6 +666,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Menu od zgłaszania</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Menu od wyłącznika czasowego</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">Menu od stabilnej głośności</string>
@@ -663,6 +699,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_preview_comment_type_off">Zmienia wielkość sekcji komentarzy, przez co nie ma możliwości włączenia ponownego odtwarzania czatu na żywo w sekcji komentarzy.</string>
     <string name="revanced_hide_preview_comment_type_on">Nie zmienia wielkości sekcji komentarzy, dzięki czemu jest możliwość włączenia ponownego odtwarzania czatu na żywo w sekcji komentarzy.</string>
     <string name="revanced_hide_preview_comment_type_title">Sposób ukrywania wyróżnionych komentarzy</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Widoczne</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Ukryte</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Banery z alertami promocyjnymi</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Widoczny</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Ukryty</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Przycisk od komentarzy</string>
@@ -759,6 +798,9 @@ Napisy"</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_dislike_button_title">Przycisk od łapkowania w dół</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">"Widoczne"</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">"Ukryte"</string>
+    <string name="revanced_hide_shorts_floating_button_title">Pływające przyciski nad tytułami</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Etykiety z linkami do całych filmów</string>
@@ -774,9 +816,9 @@ Napisy"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">Widoczny\n\nPrzycisk cofania w nagłówku nie będzie ukryty.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Ukryty\n\nPrzycisk cofania w nagłówku nie będzie ukryty.</string>
     <string name="revanced_hide_shorts_live_header_title">Nagłówek czatu transmisji na żywo</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">Widoczne</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">Ukryte</string>
-    <string name="revanced_hide_shorts_location_label_title">Etykiety z lokalizacjami</string>
+    <string name="revanced_hide_shorts_location_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_location_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_location_button_title">Przycisk od lokalizacji</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Pasek nawigacji</string>
@@ -798,9 +840,9 @@ Napisy"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Przycisk od zapisywania dźwięku do playlisty</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">Widoczne</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">Ukryte</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">Sugestie wyszukiwania</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_title">Przycisk od sugestii wyszukiwań</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_share_button_title">Przycisk od udostępniania</string>
@@ -823,6 +865,9 @@ Ograniczenie: Nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</st
     <string name="revanced_hide_shorts_shop_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_shop_button_title">Przycisk do sklepu</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Przycisk od kupowania</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_sound_button_title">Przycisk do dźwięku</string>
@@ -841,6 +886,15 @@ Ograniczenie: Nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</st
     <string name="revanced_hide_shorts_toolbar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_toolbar_title">Pasek z narzędziami</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_trends_button_title">Przycisk od trendów</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_use_template_button_title">Przycisk \'Użyj tego szablonu\'</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Przycisk \'Użyj tego dźwięku\'</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_video_title_title">Tytuły filmów</string>
@@ -894,7 +948,16 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_transcript_section_title">Transkrypcje</string>
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Na stronie głównej</string>
     <string name="revanced_hide_video_ads_title">Reklamy w filmach</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">W wynikach wyszukiwania</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_hide_video_by_duration_longer_than_summary">Filmy o czasie trwania większym od tej liczby zostaną ukryte</string>
     <string name="revanced_hide_video_by_duration_longer_than_title">Dłuższe od czasu trwania</string>
     <string name="revanced_hide_video_by_duration_shorter_than_summary">Filmy o czasie trwania mniejszym od tej liczby zostaną ukryte</string>
@@ -908,6 +971,12 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_video_view_counts_less_than_summary">Filmy z wyświetleniami mniejszymi niż ta liczba zostaną ukryte</string>
     <string name="revanced_hide_video_view_counts_less_than_title">Mniej popularne</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">tys. -&gt; 1 000\nmln -&gt; 1 000 000\nmld - &gt; 1 000 000 000\n wyświetleń-&gt; views</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">O filtrowaniu filmów po wyświetleniach</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Strona główna / subskrypcje / wyniki wyszukiwania są filtrowane, by ukrywać filmy z ilością wyświetleń mniejszą bądź większą od określonej liczby.
+
+Ograniczenia:
+• Shortsy nie mogą zostać ukryte
+• Filmy z 0 wyświetleń nie są filtrowane"</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Określ swój szablon językowy dla liczby wyświetleń pod każdym filmem w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) - &gt; wartość (znaczenie klucza) musi znajdować się w nowej linii. Klucze muszą znajdować się przed znakiem \"-&gt;\". Jeśli zmienisz język aplikacji, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -&gt; 1000, views -&gt; views\nPolski: 10 tys. wyświetleń = tys -&gt; 1000, wyświetleń -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Wyświetl klucze</string>
     <string name="revanced_hide_view_products_summary_off">Widoczne</string>
@@ -995,6 +1064,12 @@ Stuknij i przytrzymaj, by cofnąć generowanie playlisty."</string>
     <string name="revanced_overlay_button_whitelist_summary">Stuknij, by otworzyć okno białej listy.
 Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_button_whitelist_title">Przycisk od białej listy</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Natywne pobieranie</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Zewnętrzna aplikacja</string>
+    <string name="revanced_override_playlist_download_button_title">Metoda pobierania playlist</string>
+    <string name="revanced_override_video_download_button_summary_off">Natywne pobieranie</string>
+    <string name="revanced_override_video_download_button_summary_on">Zewnętrzna aplikacja</string>
+    <string name="revanced_override_video_download_button_title">Metoda pobierania filmów</string>
     <string name="revanced_patches_excluded">Wykluczone</string>
     <string name="revanced_patches_included">Zawarte</string>
     <string name="revanced_playback_speed_normal">Normalna</string>
@@ -1009,12 +1084,10 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_category_keyword_filter">Filtr słów</string>
     <string name="revanced_preference_category_others">Inne</string>
     <string name="revanced_preference_category_overlay_buttons">Przyciski w odtwarzaczu</string>
-    <string name="revanced_preference_category_patch_information">Lista łatek</string>
+    <string name="revanced_preference_category_patch_information">Informacje o łatkach</string>
     <string name="revanced_preference_category_quick_actions">Pod paskiem postępu filmu</string>
     <string name="revanced_preference_category_recommended_video">Rekomendowane filmy</string>
     <string name="revanced_preference_category_shorts_shelf">Półki z Shortsami</string>
-    <string name="revanced_preference_category_spoof_client_about">O ustawieniu</string>
-    <string name="revanced_preference_category_spoof_client_options">Klient do oszukiwania</string>
     <string name="revanced_preference_category_tool_used">Użyte narzędzie</string>
     <string name="revanced_preference_category_view_counts_filter">Filtr ilości wyświetleń</string>
     <string name="revanced_preference_screen_account_menu_summary">Ukryj bądź pokaż elementy w menu konta i zakładki Ty</string>
@@ -1038,7 +1111,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_custom_filter_summary">Ukryj komponenty używając własnego filtru</string>
     <string name="revanced_preference_screen_custom_filter_title">Własny filtr</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">Ukryj lub pokazuj menu na stronie głównej</string>
-    <string name="revanced_preference_screen_feed_flyout_menu_title">Menu ustawień filmu</string>
+    <string name="revanced_preference_screen_feed_flyout_menu_title">Menu ustawień ze strony głównej</string>
     <string name="revanced_preference_screen_feed_title">Strona główna</string>
     <string name="revanced_preference_screen_fullscreen_summary">Ukryj lub zmień układ trybu pełnoekranowego</string>
     <string name="revanced_preference_screen_fullscreen_title">Pełny ekran</string>
@@ -1053,7 +1126,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_navigation_buttons_summary">Ukryj lub pokazuj przyciski nawigacji</string>
     <string name="revanced_preference_screen_navigation_buttons_title">Przyciski nawigacji</string>
     <string name="revanced_preference_screen_patch_information_summary">Informacje na temat zastosowanych łatek.</string>
-    <string name="revanced_preference_screen_patch_information_title">Lista łatek</string>
+    <string name="revanced_preference_screen_patch_information_title">Informacje o łatkach</string>
     <string name="revanced_preference_screen_player_buttons_summary">Ukryj lub pokazuj przyciski w odtwarzaczu</string>
     <string name="revanced_preference_screen_player_buttons_title">Przyciski w odtwarzaczu</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ukryj lub zmień elementy menu ustawień filmu</string>
@@ -1068,8 +1141,8 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_shorts_player_summary">Ukryj lub pokazuj przyciski w odtwarzaczu Shortsów</string>
     <string name="revanced_preference_screen_shorts_player_title">Odtwarzacz Shortsów</string>
     <string name="revanced_preference_screen_shorts_title">Shortsy</string>
-    <string name="revanced_preference_screen_spoof_client_summary">Oszukuj klienta, by zapobiec problemom z odtwarzaniem.</string>
-    <string name="revanced_preference_screen_spoof_client_title">Oszukuj klienta</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Oszukuj strumień danych, by zapobiec problemom z odtwarzaniem</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_preference_screen_swipe_controls_title">Sterowanie przesuwaniem</string>
     <string name="revanced_preference_screen_toolbar_summary">Ukryj lub pokazuj przyciski na pasku narzędzi, takie jak pasek wyszukiwania, nagłówek i inne</string>
     <string name="revanced_preference_screen_toolbar_title">Pasek narzędzi</string>
@@ -1090,10 +1163,16 @@ Po około 20 sekundach ładowania kodek zostanie zmieniony."</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmiany prędkości odtwarzania dotyczą tylko bieżącego filmu</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmiany prędkości odtwarzania dotyczą wszystkich filmów</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętuj zmiany prędkości odtwarzania</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Wyłączone</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Włączone</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Komunikaty o zmianie domyślnej prędkości odtwarzania</string>
     <string name="revanced_remember_playback_speed_toast">Zmieniono domyślną prędkość odtwarzania na %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
     <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości filmu</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Wyłączone</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Włączone</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Komunikaty o zmianie domyślnej jakości filmów</string>
     <string name="revanced_remember_video_quality_mobile">Zmieniono domyślną jakość podczas używania sieci mobilnej na %s.</string>
     <string name="revanced_remember_video_quality_none">Nie udało się zmienić jakości obrazu.</string>
     <string name="revanced_remember_video_quality_wifi">Zmieniono domyślną jakość podczas używania Wi-Fi na %s.</string>
@@ -1147,7 +1226,6 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Ukryty</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Widoczny</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Komunikat, jeśli API jest niedostępne</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_sanitize_sharing_links_summary">Usuwa śledzące parametry z adresów URL podczas udostępniania linków</string>
     <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
     <string name="revanced_sb_about">O integracji</string>
@@ -1184,6 +1262,7 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_general_api_url">Zmień Adres API</string>
     <string name="revanced_sb_general_api_url_sum">Adres SponsorBlock używany do wykonywania połączeń z serwerem.</string>
     <string name="revanced_sb_general_min_duration">Minimalny czas segmentu</string>
+    <string name="revanced_sb_general_min_duration_invalid">Nieprawidłowy czas trwania.</string>
     <string name="revanced_sb_general_min_duration_sum">Segmenty krótsze niż ta wartość (w sekundach) nie będą pokazywane ani pomijane.</string>
     <string name="revanced_sb_general_skipcount">Śledzenie liczby pominięć</string>
     <string name="revanced_sb_general_skipcount_sum_off">Wyłączone</string>
@@ -1312,6 +1391,7 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_stats_self_saved_reset_title">Czy chcesz zresetować ilość pominiętych segmentów?</string>
     <string name="revanced_sb_stats_self_saved_sum">To &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_submissions">Stworzyłeś &lt;b&gt;%s&lt;/b&gt; segmentów</string>
+    <string name="revanced_sb_stats_submissions_sum">Kliknij, by zobaczyć swoje segmenty</string>
     <string name="revanced_sb_stats_username">Twoja nazwa użytkownika: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Stuknij tutaj, aby zmienić nazwę użytkownika</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Nie można zmienić nazwy użytkownika: Status: %1$d %2$s.</string>
@@ -1392,76 +1472,33 @@ Informacje:
 Zmieni to wygląd i rzeczy aplikacji, lecz mogą wystąpić nieznane efekty uboczne.
 
 Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych aplikacji, aby zapobiec błędom w interfejsie."</string>
-    <string name="revanced_spoof_client_fallback_title">Zastępczy</string>
-    <string name="revanced_spoof_client_general_title">Ogólne</string>
-    <string name="revanced_spoof_client_livestream_title">Transmisje na żywo</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Klient Testowy dla Androida</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_shorts_title">Shortsy, Klipy</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">Ukryta</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">Widoczna</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
-    <string name="revanced_spoof_client_summary_off">"Wyłączone. Odtwarzanie filmu może nie działać."</string>
-    <string name="revanced_spoof_client_summary_on">Włączone</string>
-    <string name="revanced_spoof_client_title">Oszukiwanie klienta</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"Oszukuje klienta do Klienta Testowego dla Androida.
-
-Efekty uboczne:
-• Brak filmów z HDR
-• Brak menu od ścieżki dźwiękowej
-• Napisy mogą być niedostępne
-• Brakuje przycisku od pobierania
-• Brakuje kart końcowych w filmach
-• Niska jakość podglądu podczas przewijania filmu"</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Klient Testowy dla Androida</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"Oszukuje klienta do Android TV (YouTube TV).
-
-Efekty uboczne:
-• Brak filmów z HDR
-• Brak menu od ścieżki dźwiękowej
-• Napisy mogą być niedostępne
-• Brakuje przycisku od pobierania
-• Niska jakość podglądu podczas przewijania fiilmu
-• Niektóre transmisje na żywo mogą nie być odtwarzane"</string>
-    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"Oszukuje klienta do Android VR.
-
-Efekty uboczne:
-• Brak filmów z HDR
-• Brakuje przycisku od pobierania na pasku akcji
-• Zatrzymane filmy mogą zostać losowo wznowione
-• Niska jakość podglądu podczas przewijania Shortsów
-• Filmy dla dzieci nie mogą zostać odtworzone"</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_summary">"Oszukuje klienta do iOS.
-
-Efekty uboczne:
-• Filmy z HDR są wspierane jedynie przy kodeku AV1
-• Historia odtwarzania nie działa na firmowych kontach
-• Nie można odtwarzać transmisji na żywo w trybie samego dźwięku"</string>
-    <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Parametry nie są oszukiwane na stronie głównej.
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Wyłączone</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Włączone</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Włączenie tego ustawienia może poprawić żywotność baterii i naprawić zacinanie się filmów.
 
-Ograniczenie: filmy na stronie głównej będą odtwarzane przez mniej niż minutę przed napotkaniem problemów z odtwarzaniem."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Parametry są oszukiwane na stronie głównej.
-
-Ograniczenie: automatycznie odtwarzane filmy będą zapisywane do historii oglądania."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Oszukaj parametry na stronie głównej</string>
-    <string name="revanced_spoof_player_parameter_summary">"Oszukuje parametry odtwarzacza, aby uniknąć problemów z odtwarzaniem.
-
-Ograniczenia:
-• Zwiększony bitrate nie jest dostępny.
-• Brak podglądu podczas przewijania dla płatnych filmów.
-• Pobieranie może nie działać.
-• Filmy mogą nie być rozpoczynane od momentu ostatniego oglądania."</string>
-    <string name="revanced_spoof_player_parameter_title">Oszukaj parametry odtwarzacza</string>
+Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9 i AV1."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Brakuje menu od ścieżki dźwiękowej</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Brakuje menu od ścieżki dźwiękowej</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Filmy kinowe lub płatne filmy mogą się nie odtwarzać
+• Transmisje na żywo rozpoczynają się od początku"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Widoczna</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"Wyłączone. Odtwarzanie filmów może nie działać"</string>
+    <string name="revanced_spoof_streaming_data_summary_on">Włączone</string>
+    <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Wyłączone</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Włączone</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Przesuwanie podczas trybu blokady ekranu</string>
@@ -1482,19 +1519,21 @@ Ograniczenia:
 • Nawet jeśli zmienisz to ustawienie, może się nic nie zmienić dopóki nie zrestartujesz urządzenia.
 • Wyłączenie tego ustawienia powoduje zwiększenie ilości reklam.
 • Powinieneś wyłączyć to ustawienie jeśli chcesz, by reklamy w filmach były widoczne."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Nie zamienone</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"Zamienione
+
+Notka: włączenie tej opcji wymusza ukrywanie reklam w filmach."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Zamień przyciski przesyłania i powiadomień</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Wyłączenie tej opcji może spowodować załadowanie się większej ilości reklam z serwera.
+
+Dodatkowo, reklamy nie będą już blokowane w Shortsach.
+
+Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito."</string>
     <string name="revanced_theme_default">Domyślny</string>
-    <string name="revanced_watch_history_about_status_android_original">"• Stosuje się do ustawień historii oglądania konta Google
-• Historia oglądania może nie działać przez DNS lub VPN"</string>
-    <string name="revanced_watch_history_about_status_android_replaced">• Stosuje się do ustawień historii oglądania konta Google</string>
-    <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa.</string>
-    <string name="revanced_watch_history_about_status_ios_original">"• Stosuje się do ustawień historii oglądania konta Google
-• Historia oglądania może nie działać przez DNS lub VPN
-• Historia oglądania może nie działać na firmowym koncie
-(Gdy oszukiwanie klienta iOS jest włączone)"</string>
-    <string name="revanced_watch_history_about_status_ios_replaced">"• Stosuje się do ustawień historii oglądania konta Google
-• Historia oglądania może nie działać jna firmowym koncie
-(Gdy oszukiwanie klienta iOS jest włączone)"</string>
+    <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
+    <string name="revanced_watch_history_about_status_original">"• Stosuje się do ustawień historii oglądania konta Google
+• Historia oglądania może nie działać przy używaniu DNS lub VPN"</string>
+    <string name="revanced_watch_history_about_status_replaced">• Stosuje się do ustawień historii oglądania konta Google</string>
     <string name="revanced_watch_history_about_title">O historii oglądania</string>
     <string name="revanced_watch_history_management_summary">Stuknij, aby otworzyć zarządzanie historią oglądania YouTube.</string>
     <string name="revanced_watch_history_management_title">Zarządzaj całą historią</string>

@@ -17,6 +17,7 @@ import app.revanced.patches.shared.mapping.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
+    var AccessibilityOfflineButtonSync = -1L
     var AccountSwitcherAccessibility = -1L
     var ActionBarRingo = -1L
     var ActionBarRingoBackground = -1L
@@ -31,6 +32,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Bar = -1L
     var BarContainerHeight = -1L
     var BottomSheetFooterText = -1L
+    var BottomSheetRecyclerView = -1L
     var BottomUiContainerStub = -1L
     var CaptionToggleContainer = -1L
     var CastMediaRouteButton = -1L
@@ -98,7 +100,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Scrubbing = -1L
     var SeekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     var SeekUndoEduOverlayStub = -1L
-    var SingleLoopEduSnackBarText = -1L
     var SlidingDialogAnimation = -1L
     var SubtitleMenuSettingsFooterInfo = -1L
     var SuggestedAction = -1L
@@ -121,6 +122,7 @@ object SharedResourceIdPatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
 
+        AccessibilityOfflineButtonSync = getId(STRING, "accessibility_offline_button_sync")
         AccountSwitcherAccessibility = getId(STRING, "account_switcher_accessibility_label")
         ActionBarRingo = getId(LAYOUT, "action_bar_ringo")
         ActionBarRingoBackground = getId(LAYOUT, "action_bar_ringo_background")
@@ -135,6 +137,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         Bar = getId(LAYOUT, "bar")
         BarContainerHeight = getId(DIMEN, "bar_container_height")
         BottomSheetFooterText = getId(ID, "bottom_sheet_footer_text")
+        BottomSheetRecyclerView = getId(LAYOUT, "bottom_sheet_recycler_view")
         BottomUiContainerStub = getId(ID, "bottom_ui_container_stub")
         CaptionToggleContainer = getId(ID, "caption_toggle_container")
         CastMediaRouteButton = getId(LAYOUT, "castmediaroutebutton")
@@ -206,7 +209,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         SeekEasyHorizontalTouchOffsetToStartScrubbing =
             getId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         SeekUndoEduOverlayStub = getId(ID, "seek_undo_edu_overlay_stub")
-        SingleLoopEduSnackBarText = getId(STRING, "single_loop_edu_snackbar_text")
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
         SubtitleMenuSettingsFooterInfo = getId(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = getId(LAYOUT, "suggested_action")

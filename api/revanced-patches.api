@@ -56,14 +56,10 @@ public final class app/revanced/patches/music/general/amoled/AmoledPatch : app/r
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsBytecodePatch : app/revanced/patches/shared/captions/BaseAutoCaptionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/general/autocaptions/AutoCaptionsBytecodePatch;
-}
-
-public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseResourcePatch {
+public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/general/autocaptions/AutoCaptionsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/music/general/components/LayoutComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -189,6 +185,12 @@ public final class app/revanced/patches/music/misc/debugging/DebuggingPatch : ap
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/music/misc/share/ShareSheetPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/share/ShareSheetPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/misc/splash/CairoSplashAnimationPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/splash/CairoSplashAnimationPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -199,10 +201,6 @@ public final class app/revanced/patches/music/misc/thumbnails/BypassImageRegionR
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryBytecodePatch : app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/tracking/SanitizeUrlQueryBytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatch : app/revanced/util/patch/BaseResourcePatch {
@@ -337,6 +335,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun getAccountSwitcherAccessibility ()J
 	public final fun getAudioVideoSwitchToggle ()J
+	public final fun getBottomSheetRecyclerView ()J
 	public final fun getButtonContainer ()J
 	public final fun getButtonIconPaddingMedium ()J
 	public final fun getChipCloud ()J
@@ -378,6 +377,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getVarispeedUnavailableTitle ()J
 	public final fun setAccountSwitcherAccessibility (J)V
 	public final fun setAudioVideoSwitchToggle (J)V
+	public final fun setBottomSheetRecyclerView (J)V
 	public final fun setButtonContainer (J)V
 	public final fun setButtonIconPaddingMedium (J)V
 	public final fun setChipCloud (J)V
@@ -682,8 +682,8 @@ public abstract class app/revanced/patches/shared/ads/BaseAdsPatch : app/revance
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/shared/captions/BaseAutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Z)V
+public final class app/revanced/patches/shared/captions/BaseAutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/captions/BaseAutoCaptionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -870,9 +870,8 @@ public abstract class app/revanced/patches/shared/spoofuseragent/BaseSpoofUserAg
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
-public abstract class app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -958,10 +957,6 @@ public final class app/revanced/patches/youtube/general/audiotracks/AudioTracksP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/general/autocaptions/AutoCaptionsBytecodePatch : app/revanced/patches/shared/captions/BaseAutoCaptionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/general/autocaptions/AutoCaptionsBytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/autocaptions/AutoCaptionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -980,6 +975,12 @@ public final class app/revanced/patches/youtube/general/dialog/ViewerDiscretionD
 
 public final class app/revanced/patches/youtube/general/dialog/ViewerDiscretionDialogPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/dialog/ViewerDiscretionDialogPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/general/downloads/DownloadActionsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/general/downloads/DownloadActionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1171,8 +1172,8 @@ public final class app/revanced/patches/youtube/misc/quic/QUICProtocolPatch : ap
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryBytecodePatch : app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryBytecodePatch;
+public final class app/revanced/patches/youtube/misc/share/ShareSheetPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/share/ShareSheetPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1360,30 +1361,8 @@ public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/utils/fix/client/SpoofClientPatch : app/revanced/util/patch/BaseBytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/client/SpoofClientPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/fix/client/SpoofUserAgentPatch : app/revanced/patches/shared/spoofuseragent/BaseSpoofUserAgentPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/client/SpoofUserAgentPatch;
-}
-
 public final class app/revanced/patches/youtube/utils/fix/doublebacktoclose/DoubleBackToClosePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/doublebacktoclose/DoubleBackToClosePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/fix/litho/ConversionContextObfuscationPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/litho/ConversionContextObfuscationPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/fix/parameter/SpoofPlayerParameterPatch : app/revanced/util/patch/BaseBytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/parameter/SpoofPlayerParameterPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1392,6 +1371,16 @@ public final class app/revanced/patches/youtube/utils/fix/shortsplayback/ShortsP
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/shortsplayback/ShortsPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofUserAgentPatch : app/revanced/patches/shared/spoofuseragent/BaseSpoofUserAgentPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/streamingdata/SpoofUserAgentPatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/suggestedvideoendscreen/SuggestedVideoEndScreenPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1487,6 +1476,12 @@ public final class app/revanced/patches/youtube/utils/navigation/fingerprints/Se
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navigation/fingerprints/SettingsActivityOnBackPressedFingerprint;
 }
 
+public final class app/revanced/patches/youtube/utils/pip/PiPStateHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/pip/PiPStateHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1515,6 +1510,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/resourceid/SharedResourceIdPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getAccessibilityOfflineButtonSync ()J
 	public final fun getAccountSwitcherAccessibility ()J
 	public final fun getActionBarRingo ()J
 	public final fun getActionBarRingoBackground ()J
@@ -1529,6 +1525,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getBar ()J
 	public final fun getBarContainerHeight ()J
 	public final fun getBottomSheetFooterText ()J
+	public final fun getBottomSheetRecyclerView ()J
 	public final fun getBottomUiContainerStub ()J
 	public final fun getCaptionToggleContainer ()J
 	public final fun getCastMediaRouteButton ()J
@@ -1596,7 +1593,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getScrubbing ()J
 	public final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public final fun getSeekUndoEduOverlayStub ()J
-	public final fun getSingleLoopEduSnackBarText ()J
 	public final fun getSlidingDialogAnimation ()J
 	public final fun getSubtitleMenuSettingsFooterInfo ()J
 	public final fun getSuggestedAction ()J
@@ -1616,6 +1612,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getYtOutlineXWhite ()J
 	public final fun getYtPremiumWordMarkHeader ()J
 	public final fun getYtWordMarkHeader ()J
+	public final fun setAccessibilityOfflineButtonSync (J)V
 	public final fun setAccountSwitcherAccessibility (J)V
 	public final fun setActionBarRingo (J)V
 	public final fun setActionBarRingoBackground (J)V
@@ -1630,6 +1627,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setBar (J)V
 	public final fun setBarContainerHeight (J)V
 	public final fun setBottomSheetFooterText (J)V
+	public final fun setBottomSheetRecyclerView (J)V
 	public final fun setBottomUiContainerStub (J)V
 	public final fun setCaptionToggleContainer (J)V
 	public final fun setCastMediaRouteButton (J)V
@@ -1697,7 +1695,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setScrubbing (J)V
 	public final fun setSeekEasyHorizontalTouchOffsetToStartScrubbing (J)V
 	public final fun setSeekUndoEduOverlayStub (J)V
-	public final fun setSingleLoopEduSnackBarText (J)V
 	public final fun setSlidingDialogAnimation (J)V
 	public final fun setSubtitleMenuSettingsFooterInfo (J)V
 	public final fun setSuggestedAction (J)V
@@ -1781,14 +1778,14 @@ public final class app/revanced/patches/youtube/utils/sponsorblock/SponsorBlockP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/utils/storyboard/StoryboardHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/storyboard/StoryboardHookPatch;
+public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch;
+public final class app/revanced/patches/youtube/utils/trackingurlhook/TrackingUrlHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/trackingurlhook/TrackingUrlHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1856,6 +1853,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun containsWideLiteralInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z
 	public static final fun findMutableMethodOf (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lcom/android/tools/smali/dexlib2/iface/Method;)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun findOpcodeIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;
+	public static final fun findOpcodeIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
 	public static final fun getException (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/patch/PatchException;
 	public static final fun getStartsWithStringInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getStringInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
@@ -1903,11 +1901,23 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lapp/revanced/patcher/data/BytecodeContext;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getWideLiteralInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)I
+	public static synthetic fun indexOfFirstInstruction$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
 	public static synthetic fun indexOfFirstInstruction$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
+	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun indexOfFirstInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;)I
+	public static synthetic fun indexOfFirstInstructionReversed$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
+	public static synthetic fun indexOfFirstInstructionReversed$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;)I
+	public static synthetic fun indexOfFirstInstructionReversedOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
+	public static synthetic fun indexOfFirstInstructionReversedOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
 	public static final fun indexOfWideLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
 	public static final fun literalInstructionBooleanHook (Lapp/revanced/patcher/fingerprint/MethodFingerprint;ILjava/lang/String;)V
@@ -1935,12 +1945,14 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun adoptChild (Lorg/w3c/dom/Node;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun copyFile (Lapp/revanced/patcher/data/ResourceContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
-	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
+	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;Z)V
+	public static synthetic fun copyResources$default (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;ZILjava/lang/Object;)V
 	public static final fun copyResourcesWithRename (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/util/Map;)V
 	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun getClassLoader ()Ljava/lang/ClassLoader;
+	public static final fun getResourceGroup (Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun lowerCaseOrThrow (Lapp/revanced/patcher/patch/options/PatchOption;)Ljava/lang/String;
 	public static final fun startsWithAny (Ljava/lang/String;[Ljava/lang/String;)Z

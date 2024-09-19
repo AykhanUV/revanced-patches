@@ -14,18 +14,20 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.youtube.utils.fingerprints.OrganicPlaybackContextModelFingerprint
+import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
+import app.revanced.patches.youtube.utils.PlayerResponseModelUtils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.PlayerResponseModelUtils.indexOfPlayerResponseModelInstruction
 import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelIdFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelNameFingerprint
-import app.revanced.patches.youtube.video.information.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.OnPlaybackSpeedItemClickFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackInitializationFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackSpeedClassFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlayerControllerSetTimeReferenceFingerprint
+import app.revanced.patches.youtube.video.information.fingerprints.SeekRelativeFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprintBackgroundPlay
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprintShorts
@@ -36,6 +38,7 @@ import app.revanced.patches.youtube.video.information.fingerprints.VideoTitleFin
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
@@ -71,7 +74,6 @@ object VideoInformationPatch : BytecodePatch(
         ChannelNameFingerprint,
         MdxPlayerDirectorSetVideoStageFingerprint,
         OnPlaybackSpeedItemClickFingerprint,
-        OrganicPlaybackContextModelFingerprint,
         PlaybackInitializationFingerprint,
         PlaybackSpeedClassFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
@@ -87,9 +89,6 @@ object VideoInformationPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$SHARED_PATH/VideoInformation;"
-
-    private const val PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
-        "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
 
     private const val REGISTER_PLAYER_RESPONSE_MODEL = 8
 
@@ -117,10 +116,11 @@ object VideoInformationPatch : BytecodePatch(
     /**
      * Used in [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint].
      * Since both classes are inherited from the same class,
-     * [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint] always have the same [seekSourceEnumType] and [seekSourceMethodName].
+     * [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint] always have the same [seekSourceEnumType], [seekSourceMethodName] and [seekRelativeSourceMethodName].
      */
     private var seekSourceEnumType = ""
     private var seekSourceMethodName = ""
+    private var seekRelativeSourceMethodName = ""
 
     private lateinit var videoInformationMutableClass: MutableClass
     private lateinit var context: BytecodeContext
@@ -138,28 +138,18 @@ object VideoInformationPatch : BytecodePatch(
     internal lateinit var speedSelectionInsertMethod: MutableMethod
     internal lateinit var videoEndMethod: MutableMethod
 
-    private fun getSeekToConstructorMethod(
+    private fun addSeekInterfaceMethods(
         result: MethodFingerprintResult,
+        seekMethodName: String,
         methodName: String,
+        fieldMethodName: String,
         fieldName: String
-    ): Pair<MutableMethod, Int> {
+    ) {
         result.mutableMethod.apply {
-            val constructorMethod =
-                result.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
-
-            val constructorInsertIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
-            } + 1
-
-            if (seekSourceEnumType.isEmpty() && seekSourceMethodName.isEmpty()) {
-                seekSourceEnumType = parameterTypes[1].toString()
-                seekSourceMethodName = name
-            }
-
             result.mutableClass.methods.add(
                 ImmutableMethod(
                     definingClass,
-                    "seekTo",
+                    fieldMethodName,
                     listOf(ImmutableMethodParameter("J", annotations, "time")),
                     "Z",
                     AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -167,8 +157,9 @@ object VideoInformationPatch : BytecodePatch(
                     null,
                     ImmutableMethodImplementation(
                         4, """
+                            # first enum (field a) is SEEK_SOURCE_UNKNOWN
                             sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->$seekSourceMethodName(J$seekSourceEnumType)Z
+                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->$seekMethodName(J$seekSourceEnumType)Z
                             move-result p1
                             return p1
                             """.toInstructions(),
@@ -181,7 +172,7 @@ object VideoInformationPatch : BytecodePatch(
             val smaliInstructions =
                 """
                     if-eqz v0, :ignore
-                    invoke-virtual {v0, p0, p1}, $definingClass->seekTo(J)Z
+                    invoke-virtual {v0, p0, p1}, $definingClass->$fieldMethodName(J)Z
                     move-result v0
                     return v0
                     :ignore
@@ -197,8 +188,6 @@ object VideoInformationPatch : BytecodePatch(
                 smaliInstructions,
                 true
             )
-
-            return Pair(constructorMethod, constructorInsertIndex)
         }
     }
 
@@ -208,16 +197,41 @@ object VideoInformationPatch : BytecodePatch(
             context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
-            val (playerConstructorMethod, playerConstructorInsertIndex) =
-                getSeekToConstructorMethod(it, "overrideVideoTime", "videoInformationClass")
-
-            this.playerConstructorMethod = playerConstructorMethod
-            this.playerConstructorInsertIndex = playerConstructorInsertIndex
-
-            // hook the player controller for use through integrations
-            onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
-
             it.mutableMethod.apply {
+                playerConstructorMethod =
+                    it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
+
+                playerConstructorInsertIndex =
+                    playerConstructorMethod.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                    } + 1
+
+                // hook the player controller for use through integrations
+                onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
+
+                seekSourceEnumType = parameterTypes[1].toString()
+                seekSourceMethodName = name
+                seekRelativeSourceMethodName = SeekRelativeFingerprint.alsoResolve(
+                    context,
+                    VideoEndFingerprint
+                ).mutableMethod.name
+
+                // Create integrations interface methods.
+                addSeekInterfaceMethods(
+                    it,
+                    seekSourceMethodName,
+                    "overrideVideoTime",
+                    "seekTo",
+                    "videoInformationClass"
+                )
+                addSeekInterfaceMethods(
+                    it,
+                    seekRelativeSourceMethodName,
+                    "overrideVideoTimeRelative",
+                    "seekToRelative",
+                    "videoInformationClass"
+                )
+
                 val literalIndex = getWideLiteralInstructionIndex(45368273)
                 val walkerIndex =
                     getTargetIndexReversedOrThrow(literalIndex, Opcode.INVOKE_VIRTUAL_RANGE)
@@ -228,32 +242,52 @@ object VideoInformationPatch : BytecodePatch(
         }
 
         MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow().let {
-            val (mdxConstructorMethod, mdxConstructorInsertIndex) =
-                getSeekToConstructorMethod(it, "overrideMDXVideoTime", "videoInformationMDXClass")
+            it.mutableMethod.apply {
+                mdxConstructorMethod =
+                    it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
 
-            this.mdxConstructorMethod = mdxConstructorMethod
-            this.mdxConstructorInsertIndex = mdxConstructorInsertIndex
+                mdxConstructorInsertIndex = mdxConstructorMethod.indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                } + 1
 
-            // hook the MDX director for use through integrations
-            onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
+                // hook the MDX director for use through integrations
+                onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
+
+                // Create integrations interface methods.
+                addSeekInterfaceMethods(
+                    it,
+                    seekSourceMethodName,
+                    "overrideMDXVideoTime",
+                    "seekTo",
+                    "videoInformationMDXClass"
+                )
+                addSeekInterfaceMethods(
+                    it,
+                    seekRelativeSourceMethodName,
+                    "overrideMDXVideoTimeRelative",
+                    "seekToRelative",
+                    "videoInformationMDXClass"
+                )
+            }
         }
 
         /**
          * Set current video information
          */
-        channelIdMethodCall = ChannelIdFingerprint.getMethodName("Ljava/lang/String;")
-        channelNameMethodCall = ChannelNameFingerprint.getMethodName("Ljava/lang/String;")
-        videoIdMethodCall = VideoIdFingerprint.getMethodName("Ljava/lang/String;")
-        videoTitleMethodCall = VideoTitleFingerprint.getMethodName("Ljava/lang/String;")
-        videoLengthMethodCall = VideoLengthFingerprint.getMethodName("J")
-        videoIsLiveMethodCall = ChannelIdFingerprint.getMethodName("Z")
+        channelIdMethodCall =
+            ChannelIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        channelNameMethodCall =
+            ChannelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoIdMethodCall = VideoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoTitleMethodCall =
+            VideoTitleFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoLengthMethodCall = VideoLengthFingerprint.getPlayerResponseInstruction("J")
+        videoIsLiveMethodCall = ChannelIdFingerprint.getPlayerResponseInstruction("Z")
 
         PlaybackInitializationFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_DIRECT
-                            && getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                } + 1
+                val targetIndex =
+                    PlaybackInitializationFingerprint.indexOfPlayerResponseModelInstruction(this) + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -270,10 +304,7 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintBackgroundPlay.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_INTERFACE
-                            && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                }
+                val targetIndex = indexOfPlayerResponseModelInstruction(this)
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -288,10 +319,7 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintShorts.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_INTERFACE
-                            && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                }
+                val targetIndex = indexOfPlayerResponseModelInstruction(this)
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -327,7 +355,7 @@ object VideoInformationPatch : BytecodePatch(
         // Call before any other video id hooks,
         // so they can use VideoInformation and check if the video id is for a Short.
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.PlayerParameterBeforeVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
         )
 
         /**
@@ -495,7 +523,7 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         playerConstructorMethod.addInstruction(
             playerConstructorInsertIndex++,
-            "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "invoke-static { }, $targetMethodClass->$targetMethodName()V"
         )
 
     /**
@@ -507,7 +535,7 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
         mdxConstructorMethod.addInstruction(
             mdxConstructorInsertIndex++,
-            "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "invoke-static { }, $targetMethodClass->$targetMethodName()V"
         )
 
     /**
@@ -523,14 +551,16 @@ object VideoInformationPatch : BytecodePatch(
             "invoke-static { p1, p2 }, $targetMethodClass->$targetMethodName(J)V"
         )
 
-    private fun MethodFingerprint.getMethodName(returnType: String): String {
+    private fun MethodFingerprint.getPlayerResponseInstruction(returnType: String): String {
         resultOrThrow().mutableMethod.apply {
-            val targetIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_INTERFACE
-                        && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                        && getReference<MethodReference>()?.returnType == returnType
-            }
-            val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+            val targetReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            reference?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR &&
+                            reference.returnType == returnType
+                }
+            ).reference
 
             return "invoke-interface {v${REGISTER_PLAYER_RESPONSE_MODEL}}, $targetReference"
         }
