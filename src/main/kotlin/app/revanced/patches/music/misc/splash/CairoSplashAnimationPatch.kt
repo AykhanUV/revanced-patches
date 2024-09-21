@@ -39,7 +39,7 @@ object CairoSplashAnimationPatch : BytecodePatch(
             SettingsPatch.addSwitchPreference(
                 CategoryType.MISC,
                 "revanced_disable_cairo_splash_animation",
-                "false"
+                "true"
             )
 
         }

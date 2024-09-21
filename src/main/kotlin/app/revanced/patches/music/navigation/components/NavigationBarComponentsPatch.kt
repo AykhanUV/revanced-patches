@@ -135,7 +135,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_hide_navigation_samples_button",
-            "false"
+            "true"
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.NAVIGATION,

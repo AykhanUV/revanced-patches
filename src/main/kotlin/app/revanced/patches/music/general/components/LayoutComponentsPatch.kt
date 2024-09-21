@@ -330,7 +330,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_cast_button",
-            "true"
+            "false"
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.GENERAL,

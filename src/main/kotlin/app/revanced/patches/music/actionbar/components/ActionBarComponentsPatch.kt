@@ -172,7 +172,7 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.ACTION_BAR,
             "revanced_external_downloader_action",
-            "false"
+            "true"
         )
         SettingsPatch.addPreferenceWithIntent(
             CategoryType.ACTION_BAR,
