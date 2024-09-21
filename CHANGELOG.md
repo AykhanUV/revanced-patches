@@ -3,7 +3,7 @@
 
 ### Features
 
-* **YTM - Change default values
+* YTM - Change default values
 
 # [2.229.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.5...v2.229.0-dev.6) (2024-09-17)
 
