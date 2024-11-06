@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import kotlin.properties.Delegates
@@ -19,10 +19,10 @@ abstract class BaseMainActivityResolvePatch(
 ) {
     lateinit var mainActivityMutableClass: MutableClass
     lateinit var onConfigurationChangedMethod: MutableMethod
+    lateinit var onCreateMethod: MutableMethod
 
     private lateinit var constructorMethod: MutableMethod
     private lateinit var onBackPressedMethod: MutableMethod
-    private lateinit var onCreateMethod: MutableMethod
 
     private var constructorMethodIndex by Delegates.notNull<Int>()
     private var onBackPressedMethodIndex by Delegates.notNull<Int>()
@@ -38,7 +38,8 @@ abstract class BaseMainActivityResolvePatch(
 
         // set onBackPressed method
         onBackPressedMethod = getMethod("onBackPressed")
-        onBackPressedMethodIndex = onBackPressedMethod.getTargetIndexOrThrow(Opcode.RETURN_VOID)
+        onBackPressedMethodIndex =
+            onBackPressedMethod.indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
 
         // set onConfigurationChanged method
         onConfigurationChangedMethod = getMethod("onConfigurationChanged")
