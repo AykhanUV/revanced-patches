@@ -61,15 +61,15 @@ val seekbarComponentsPatch = bytecodePatch(
     )
 
     val cairoStartColor by stringOption(
-        key = "CairoStartColor",
-        default = "#ffff2791",
+        key = "cairoStartColor",
+        default = "#FFFF2791",
         title = "Cairo start color",
         description = "Set Cairo start color for the seekbar."
     )
 
     val cairoEndColor by stringOption(
-        key = "CairoEndColor",
-        default = "#ffff0033",
+        key = "cairoEndColor",
+        default = "#FFFF0033",
         title = "Cairo end color",
         description = "Set Cairo end color for the seekbar."
     )
@@ -225,10 +225,10 @@ val seekbarComponentsPatch = bytecodePatch(
         getContext().document("res/values/colors.xml").use { document ->
             document.doRecursively loop@{ node ->
                 if (node is Element && node.tagName == "color") {
-                    if (node.getAttribute("name") == "yt_youtube_magenta") {
+                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
                         node.textContent = cairoStartColor
                     }
-                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
+                    if (node.getAttribute("name") == "yt_youtube_magenta") {
                         node.textContent = cairoEndColor
                     }
                 }

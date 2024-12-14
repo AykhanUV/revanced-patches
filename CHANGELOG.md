@@ -1,3 +1,25 @@
+# [3.0.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.3...v3.0.0-dev.4) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube Music - Visual preferences icons:** Custom branding icons did not work ([45fa7fd](https://github.com/anddea/revanced-patches/commit/45fa7fd9169218bd0cee46b8413aee7611212b0b))
+
+# [3.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.2...v3.0.0-dev.3) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Play all button did not work for all videos when using all content by time ascending ([e4e51f5](https://github.com/anddea/revanced-patches/commit/e4e51f583ebbf2986a1077860503e3e94c3a3f05))
+* **YouTube - Seekbr components:** Reverse start and end colors for Cairo seekbar ([e9bd106](https://github.com/anddea/revanced-patches/commit/e9bd106114c1669426d10830b544d7936a0728a1))
+
+# [3.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.1...v3.0.0-dev.2) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Add missing icons in the Manager ([a9b443a](https://github.com/anddea/revanced-patches/commit/a9b443a738ca6f94a98ee32d9cd7ad0837ce66a8))
+
 # [3.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.232.0-dev.1...v3.0.0-dev.1) (2024-12-11)
 
 
