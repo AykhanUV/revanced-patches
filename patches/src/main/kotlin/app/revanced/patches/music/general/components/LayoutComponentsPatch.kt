@@ -1,4 +1,4 @@
- package app.revanced.patches.music.general.components
+package app.revanced.patches.music.general.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
