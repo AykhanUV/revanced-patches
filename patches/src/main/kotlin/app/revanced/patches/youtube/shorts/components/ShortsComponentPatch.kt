@@ -6,29 +6,39 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.shared.textcomponent.hookSpannableString
 import app.revanced.patches.shared.textcomponent.textComponentPatch
+import app.revanced.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SHORTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.indexOfSpannedCharSequenceInstruction
 import app.revanced.patches.youtube.utils.lottie.LOTTIE_ANIMATION_VIEW_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.lottie.lottieAnimationViewHookPatch
+import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SHORTS_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_02_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewHook
+import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.resourceid.bottomBarContainer
 import app.revanced.patches.youtube.utils.resourceid.metaPanel
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
@@ -47,12 +57,19 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.toolbar.hookToolBar
+import app.revanced.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.revanced.patches.youtube.video.information.hookShortsVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
+import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.ResourceGroup
+import app.revanced.util.cloneMutable
 import app.revanced.util.copyResources
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.findMutableMethodOf
+import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -71,8 +88,10 @@ import app.revanced.util.or
 import app.revanced.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -130,6 +149,196 @@ private val shortsAnimationPatch = bytecodePatch(
     }
 }
 
+private const val SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR =
+    "$COMPONENTS_PATH/ShortsCustomActionsFilter;"
+private const val EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR =
+    "$SHORTS_PATH/CustomActionsPatch;"
+
+private val shortsCustomActionsPatch = bytecodePatch(
+    description = "shortsCustomActionsPatch"
+) {
+    dependsOn(
+        bottomSheetRecyclerViewPatch,
+        lithoFilterPatch,
+        playerTypeHookPatch,
+        toolBarHookPatch,
+        videoIdPatch,
+        videoInformationPatch,
+        versionCheckPatch,
+    )
+
+    execute {
+        if (!is_18_34_or_greater) {
+            return@execute
+        }
+
+        // region hook toolbar more button
+
+        hookToolBar("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setToolbarMenu")
+
+        // toolbar in Shorts livestream
+        liveHeaderElementsContainerFingerprint.methodOrThrow().apply {
+            val addViewIndex = indexOfAddLiveHeaderElementsContainerInstruction(this)
+            val viewRegister = getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
+
+            addInstruction(
+                addViewIndex + 1,
+                "invoke-static {v$viewRegister}, " +
+                        "$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onLiveHeaderElementsContainerCreate(Landroid/view/View;)V"
+            )
+        }
+
+        // endregion
+
+        // region add litho filter
+
+        hookPlayerResponseVideoId("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        hookShortsVideoInformation("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newShortsVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+
+        addLithoFilter(SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR)
+
+        // endregion
+
+        if (!is_19_02_or_greater) {
+            return@execute
+        }
+
+        // region hook flyout menu
+
+        bottomSheetMenuListBuilderFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val addListIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "add"
+                }
+                val addListReference = getInstruction<ReferenceInstruction>(addListIndex).reference
+
+                val getObjectIndex = indexOfFirstInstructionReversedOrThrow(addListIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.returnType == "Ljava/lang/Object;"
+                }
+                val getObjectReference =
+                    getInstruction<ReferenceInstruction>(getObjectIndex).reference as MethodReference
+
+                val bottomSheetMenuInitializeIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_STATIC_RANGE &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes[1] == "Ljava/lang/Object;"
+                }
+                val bottomSheetMenuObjectRegister =
+                    getInstruction<RegisterRangeInstruction>(bottomSheetMenuInitializeIndex).startRegister
+                val bottomSheetMenuObject =
+                    (getInstruction<ReferenceInstruction>(bottomSheetMenuInitializeIndex).reference as MethodReference).parameterTypes[0]!!
+
+                val bottomSheetMenuListIndex = it.patternMatch!!.startIndex
+                val bottomSheetMenuListField =
+                    (getInstruction<ReferenceInstruction>(bottomSheetMenuListIndex).reference as FieldReference)
+
+                val bottomSheetMenuClass = bottomSheetMenuListField.definingClass
+                val bottomSheetMenuList = bottomSheetMenuListField.type
+
+                val bottomSheetMenuClassRegister =
+                    getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerB
+                val bottomSheetMenuListRegister =
+                    getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerA
+
+                addInstruction(
+                    bottomSheetMenuListIndex + 1,
+                    "invoke-static {v$bottomSheetMenuClassRegister, v$bottomSheetMenuListRegister}, " +
+                            "$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->addFlyoutMenu(Ljava/lang/Object;Ljava/lang/Object;)V"
+                )
+
+                addInstruction(
+                    bottomSheetMenuInitializeIndex + 1,
+                    "invoke-static {v$bottomSheetMenuObjectRegister}, " +
+                            "$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setFlyoutMenuObject(Ljava/lang/Object;)V"
+                )
+
+                val addFlyoutMenuMethod =
+                    findMethodOrThrow(EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR) {
+                        name == "addFlyoutMenu" &&
+                                accessFlags == AccessFlags.PRIVATE or AccessFlags.STATIC
+                    }
+
+                val customActionClass = with(addFlyoutMenuMethod) {
+                    val thirdParameter = parameters[2]
+
+                    addInstructions(
+                        3, """
+                            check-cast p0, $bottomSheetMenuClass
+                            check-cast v0, $bottomSheetMenuObject
+                            invoke-virtual {p0, v0, p2}, $bottomSheetMenuClass->buildFlyoutMenu(${bottomSheetMenuObject}${thirdParameter})${getObjectReference.definingClass}
+                            move-result-object v0
+                            invoke-virtual {v0}, $getObjectReference
+                            move-result-object v0
+                            check-cast p1, $bottomSheetMenuList
+                            invoke-virtual {p1, v0}, $addListReference
+                            return-void
+                            """
+                    )
+
+                    thirdParameter
+                }
+
+                val bottomSheetMenuItemBuilderMethod = bottomSheetMenuItemBuilderFingerprint
+                    .methodOrThrow()
+
+                val newParameter =
+                    bottomSheetMenuItemBuilderMethod.parameters + listOf(customActionClass)
+
+                it.classDef.methods.add(
+                    bottomSheetMenuItemBuilderMethod
+                        .cloneMutable(
+                            accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+                            name = "buildFlyoutMenu",
+                            registerCount = bottomSheetMenuItemBuilderMethod.implementation!!.registerCount + 1,
+                            parameters = newParameter,
+                        ).apply {
+                            val drawableIndex = indexOfFirstInstructionOrThrow {
+                                opcode == Opcode.INVOKE_DIRECT &&
+                                        getReference<MethodReference>()?.returnType == "Landroid/graphics/drawable/Drawable;"
+                            }
+                            val drawableRegister =
+                                getInstruction<OneRegisterInstruction>(drawableIndex + 1).registerA
+
+                            addInstructions(
+                                drawableIndex + 2, """
+                                    invoke-virtual {p2}, $customActionClass->getDrawable()Landroid/graphics/drawable/Drawable;
+                                    move-result-object v$drawableRegister
+                                    """
+                            )
+
+                            val charSequenceIndex = indexOfSpannedCharSequenceInstruction(this)
+                            val charSequenceRegister =
+                                getInstruction<OneRegisterInstruction>(charSequenceIndex + 1).registerA
+
+                            val insertIndex = charSequenceIndex + 2
+
+                            if (getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
+                                    .startsWith("Lapp/revanced")
+                            ) {
+                                removeInstructions(insertIndex, 2)
+                            }
+
+                            addInstructions(
+                                insertIndex, """
+                                    invoke-virtual {p2}, $customActionClass->getLabel()Ljava/lang/String;
+                                    move-result-object v$charSequenceRegister
+                                    """
+                            )
+                        }
+                )
+            }
+        }
+
+        bottomSheetRecyclerViewHook("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+
+        // endregion
+
+    }
+}
+
 private val shortsNavigationBarPatch = bytecodePatch(
     description = "shortsNavigationBarPatch"
 ) {
@@ -174,25 +383,34 @@ private val shortsNavigationBarPatch = bytecodePatch(
     }
 }
 
+private const val EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR =
+    "$SHORTS_PATH/ShortsRepeatStatePatch;"
+
 private val shortsRepeatPatch = bytecodePatch(
     description = "shortsRepeatPatch"
 ) {
     execute {
-        reelEnumConstructorFingerprint.methodOrThrow().apply {
-            arrayOf(
-                "REEL_LOOP_BEHAVIOR_END_SCREEN" to "endScreen",
-                "REEL_LOOP_BEHAVIOR_REPEAT" to "repeat",
-                "REEL_LOOP_BEHAVIOR_SINGLE_PLAY" to "singlePlay"
-            ).map { (enumName, fieldName) ->
-                val stringIndex = indexOfFirstStringInstructionOrThrow(enumName)
-                val insertIndex = indexOfFirstInstructionOrThrow(stringIndex, Opcode.SPUT_OBJECT)
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        dependsOn(mainActivityResolvePatch)
 
-                addInstruction(
-                    insertIndex + 1,
-                    "sput-object v$insertRegister, $SHORTS_CLASS_DESCRIPTOR->$fieldName:Ljava/lang/Enum;"
-                )
-            }
+        injectOnCreateMethodCall(
+            EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR,
+            "setMainActivity"
+        )
+
+        val reelEnumClass = reelEnumConstructorFingerprint.definingClassOrThrow()
+
+        reelEnumConstructorFingerprint.methodOrThrow().apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
+
+            addInstructions(
+                insertIndex,
+                """
+                    # Pass the first enum value to extension.
+                    # Any enum value of this type will work.
+                    sget-object v0, $reelEnumClass->a:$reelEnumClass
+                    invoke-static { v0 }, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
+                    """,
+            )
 
             val endScreenStringIndex =
                 indexOfFirstStringInstructionOrThrow("REEL_LOOP_BEHAVIOR_END_SCREEN")
@@ -232,7 +450,7 @@ private val shortsRepeatPatch = bytecodePatch(
 
                                     addInstructions(
                                         index + 2, """
-                                            invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->changeShortsRepeatState(Ljava/lang/Enum;)Ljava/lang/Enum;
+                                            invoke-static {v$register}, $EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
                                             move-result-object v$register
                                             """
                                     )
@@ -343,7 +561,10 @@ val shortsComponentPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
+
         shortsAnimationPatch,
+        shortsCustomActionsPatch,
         shortsNavigationBarPatch,
         shortsRepeatPatch,
         shortsTimeStampPatch,
@@ -352,7 +573,6 @@ val shortsComponentPatch = bytecodePatch(
         lithoFilterPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         textComponentPatch,
         versionCheckPatch,
         videoInformationPatch,
@@ -410,6 +630,19 @@ val shortsComponentPatch = bytecodePatch(
 
         if (is_19_25_or_greater && !is_19_28_or_greater) {
             settingArray += "SETTINGS: SHORTS_TIME_STAMP"
+        }
+
+        if (is_18_34_or_greater) {
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_SHARED"
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_TOOLBAR"
+        }
+
+        if (is_19_02_or_greater) {
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU"
+        }
+
+        if (is_19_34_or_greater) {
+            settingArray += "SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND"
         }
 
         // region patch for hide comments button (non-litho)

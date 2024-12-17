@@ -7,7 +7,6 @@ import static app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.us
 import android.app.AlertDialog;
 import android.content.Context;
 import android.media.AudioManager;
-import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -17,9 +16,10 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import app.revanced.extension.shared.settings.IntegerSetting;
+import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.utils.IntentUtils;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.settings.preference.ExternalDownloaderPlaylistPreference;
@@ -32,7 +32,8 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 public class VideoUtils extends IntentUtils {
     private static final String PLAYLIST_URL = "https://www.youtube.com/playlist?list=";
     private static final String VIDEO_URL = "https://youtu.be/";
-    private static final String VIDEO_SCHEME_FORMAT = "vnd.youtube://%s?start=%d";
+    private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
+    private static final String VIDEO_SCHEME_LINK_FORMAT = "https://youtu.be/%s?t=%d";
     private static final AtomicBoolean isExternalDownloaderLaunched = new AtomicBoolean(false);
 
     private static String getPlaylistUrl(String playlistId) {
@@ -47,7 +48,7 @@ public class VideoUtils extends IntentUtils {
         return getVideoUrl(VideoInformation.getVideoId(), withTimestamp);
     }
 
-    private static String getVideoUrl(String videoId, boolean withTimestamp) {
+    public static String getVideoUrl(String videoId, boolean withTimestamp) {
         StringBuilder builder = new StringBuilder(VIDEO_URL);
         builder.append(videoId);
         final long currentVideoTimeInSeconds = VideoInformation.getVideoTimeInSeconds();
@@ -58,16 +59,21 @@ public class VideoUtils extends IntentUtils {
         return builder.toString();
     }
 
-    private static String getVideoScheme() {
-        return getVideoScheme(VideoInformation.getVideoId());
-    }
-
-    private static String getVideoScheme(String videoId) {
-        return String.format(Locale.ENGLISH, VIDEO_SCHEME_FORMAT, videoId, VideoInformation.getVideoTimeInSeconds());
+    private static String getVideoScheme(String videoId, boolean isShorts) {
+        return String.format(
+                Locale.ENGLISH,
+                isShorts ? VIDEO_SCHEME_INTENT_FORMAT : VIDEO_SCHEME_LINK_FORMAT,
+                videoId,
+                VideoInformation.getVideoTimeInSeconds()
+        );
     }
 
     public static void copyUrl(boolean withTimestamp) {
-        setClipboard(getVideoUrl(withTimestamp), withTimestamp
+        copyUrl(getVideoUrl(withTimestamp), withTimestamp);
+    }
+
+    public static void copyUrl(String videoUrl, boolean withTimestamp) {
+        setClipboard(videoUrl, withTimestamp
                 ? str("revanced_share_copy_url_timestamp_success")
                 : str("revanced_share_copy_url_success")
         );
@@ -139,35 +145,37 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void openVideo(@NonNull String videoId) {
-        openVideo(getVideoScheme(videoId), "");
+        openVideo(videoId, false, null);
     }
 
-    public static void openVideo(@NonNull PlaylistIdPrefix prefixId) {
-        openVideo(getVideoScheme(), prefixId.prefixId);
+    public static void openVideo(@NonNull String videoId, boolean isShorts) {
+        openVideo(videoId, isShorts, null);
     }
 
-    /**
-     * Create playlist with all channel videos.
-     */
-    public static void openVideo(@NonNull String videoScheme, @NonNull String prefixId) {
-        if (!TextUtils.isEmpty(prefixId)) {
-            final String channelId = VideoInformation.getChannelId();
-            // Channel id always starts with `UC` prefix
-            if (!channelId.startsWith("UC")) {
-                showToastShort(str("revanced_overlay_button_play_all_not_available_toast"));
-                return;
-            }
-            if (prefixId.equals("UL")) {
-                videoScheme += "&list=" + prefixId + VideoInformation.getVideoId();
-            }
-            else {
-                videoScheme += "&list=" + prefixId + channelId.substring(2);
+    public static void openVideo(@NonNull PlaylistIdPrefix playlistIdPrefix) {
+        openVideo(VideoInformation.getVideoId(), false, playlistIdPrefix);
+    }
+
+    public static void openVideo(@NonNull String videoId, boolean isShorts, @Nullable PlaylistIdPrefix playlistIdPrefix) {
+        final StringBuilder sb = new StringBuilder(getVideoScheme(videoId, isShorts));
+        // Create playlist with all channel videos.
+        if (playlistIdPrefix != null) {
+            sb.append("&list=");
+            sb.append(playlistIdPrefix.prefixId);
+            if (playlistIdPrefix.useChannelId) {
+                final String channelId = VideoInformation.getChannelId();
+                // Channel id always starts with `UC` prefix
+                if (!channelId.startsWith("UC")) {
+                    showToastShort(str("revanced_overlay_button_play_all_not_available_toast"));
+                    return;
+                }
+                sb.append(channelId.substring(2));
+            } else {
+                sb.append(videoId);
             }
         }
-        final String finalVideoScheme = videoScheme;
-        Logger.printInfo(() -> finalVideoScheme);
 
-        launchView(videoScheme, getContext().getPackageName());
+        launchView(sb.toString(), getContext().getPackageName());
     }
 
     /**
@@ -199,7 +207,7 @@ public class VideoUtils extends IntentUtils {
     private static int mClickedDialogEntryIndex;
 
     public static void showShortsRepeatDialog(@NonNull Context context) {
-        final IntegerSetting setting = Settings.CHANGE_SHORTS_REPEAT_STATE;
+        final EnumSetting<ShortsLoopBehavior> setting = Settings.CHANGE_SHORTS_REPEAT_STATE;
         final String settingsKey = setting.key;
 
         final String entryKey = settingsKey + "_entries";
@@ -208,13 +216,15 @@ public class VideoUtils extends IntentUtils {
         final String[] mEntryValues = getStringArray(entryValueKey);
 
         final int findIndex = Arrays.binarySearch(mEntryValues, String.valueOf(setting.get()));
-        mClickedDialogEntryIndex = findIndex >= 0 ? findIndex : setting.defaultValue;
+        mClickedDialogEntryIndex = findIndex >= 0 ? findIndex : setting.defaultValue.ordinal();
 
         new AlertDialog.Builder(context)
                 .setTitle(str(settingsKey + "_title"))
                 .setSingleChoiceItems(mEntries, mClickedDialogEntryIndex, (dialog, id) -> {
                     mClickedDialogEntryIndex = id;
-                    setting.save(id);
+                    for (ShortsLoopBehavior behavior : ShortsLoopBehavior.values()) {
+                        if (behavior.ordinal() == id) setting.save(behavior);
+                    }
                     dialog.dismiss();
                 })
                 .setNegativeButton(android.R.string.cancel, null)

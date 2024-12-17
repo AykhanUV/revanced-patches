@@ -45,6 +45,10 @@ internal enum class PatchList(
         "Disable Cairo splash animation",
         "Adds an option to disable Cairo splash animation."
     ),
+    DISABLE_DRC_AUDIO(
+        "Disable DRC audio",
+        "Adds an option to disable DRC (Dynamic Range Compression) audio."
+    ),
     DISABLE_AUTO_CAPTIONS(
         "Disable auto captions",
         "Adds an option to disable captions from being automatically enabled."
@@ -143,7 +147,11 @@ internal enum class PatchList(
     ),
     SPOOF_CLIENT(
         "Spoof client",
-        "Adds options to spoof the client to allow track playback."
+        "Adds options to spoof the client to allow playback."
+    ),
+    SPOOF_STREAMING_DATA(
+        "Spoof streaming data",
+        "Adds options to spoof the streaming data to allow playback."
     ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",

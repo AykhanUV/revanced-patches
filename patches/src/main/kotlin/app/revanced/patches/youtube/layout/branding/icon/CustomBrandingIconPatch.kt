@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
@@ -17,6 +18,7 @@ import app.revanced.util.copyXmlNode
 import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
+import app.revanced.util.valueOrThrow
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -41,7 +43,8 @@ private val availableIcon = mapOf(
     "Vanced Black" to "vanced_black",
     "Vanced Light" to "vanced_light",
     "Xisr Yellow" to DEFAULT_ICON,
-    "YouTube" to "youtube"
+    "YouTube" to "youtube",
+    "YouTube Black" to "youtube_black",
 )
 
 private val sizeArray = arrayOf(
@@ -139,19 +142,20 @@ val customBrandingIconPatch = resourcePatch(
         key = "restoreOldSplashAnimation",
         default = true,
         title = "Restore old splash animation",
-        description = "Restore the old style splash animation.",
+        description = "Restore the old style splash animation. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         required = true,
     )
 
     execute {
         // Check patch options first.
-        val appIcon = appIconOption.underBarOrThrow()
+        var appIcon = appIconOption
+            .underBarOrThrow()
 
         val appIconResourcePath = "youtube/branding/$appIcon"
 
-
         // Check if a custom path is used in the patch options.
         if (!availableIcon.containsValue(appIcon)) {
+            appIcon = appIconOption.valueOrThrow()
             val copiedFiles = copyFile(
                 launcherIconResourceGroups,
                 appIcon,
@@ -188,17 +192,21 @@ val customBrandingIconPatch = resourcePatch(
 
             // Change splash screen.
             if (restoreOldSplashAnimationOption == true) {
-                oldSplashAnimationResourceGroups.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        copyResources("$appIconResourcePath/splash", it)
+                if (!is_19_17_or_greater) {
+                    oldSplashAnimationResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            copyResources("$appIconResourcePath/splash", it)
+                        }
                     }
-                }
 
-                copyXmlNode(
-                    "$appIconResourcePath/splash",
-                    "values-v31/styles.xml",
-                    "resources"
-                )
+                    copyXmlNode(
+                        "$appIconResourcePath/splash",
+                        "values-v31/styles.xml",
+                        "resources"
+                    )
+                } else {
+                    println("WARNING: \"Restore old splash animation\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+                }
             }
 
             updatePatchStatusIcon(appIcon)
@@ -212,8 +220,14 @@ val customBrandingIconPatch = resourcePatch(
         }
 
         mapOf(
-            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "background"),
-            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "foreground")
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile(
+                "res/mipmap-anydpi/ic_launcher.xml",
+                "background"
+            ),
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile(
+                "res/mipmap-anydpi/ic_launcher.xml",
+                "foreground"
+            )
         ).forEach { (oldIconResourceFile, newIconResourceFile) ->
             if (oldIconResourceFile != newIconResourceFile) {
                 mipmapDirectories.forEach {
