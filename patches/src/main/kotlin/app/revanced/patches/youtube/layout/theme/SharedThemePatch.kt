@@ -6,8 +6,6 @@ import app.revanced.patches.shared.drawable.addDrawableColorHook
 import app.revanced.patches.shared.drawable.drawableColorHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
-import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
-import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import org.w3c.dom.Element
 
 private const val SPLASH_SCREEN_COLOR_NAME = "splashScreenColor"
@@ -18,10 +16,7 @@ val sharedThemePatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        drawableColorHookPatch,
-        versionCheckPatch,
-    )
+    dependsOn(drawableColorHookPatch)
 
     execute {
         addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getLithoColor(I)I")
@@ -70,7 +65,9 @@ val sharedThemePatch = resourcePatch(
                                     }
 
                                     1 -> when (nodeAttributeName) {
-                                        "Base.Theme.YouTube.Launcher" -> SPLASH_SCREEN_COLOR_ATTRIBUTE
+                                        "Base.Theme.YouTube.Launcher",
+                                        "Base.Theme.YouTube.Launcher.Cairo" -> SPLASH_SCREEN_COLOR_ATTRIBUTE
+
                                         else -> "null"
                                     }
 
@@ -86,56 +83,55 @@ val sharedThemePatch = resourcePatch(
             }
         }
 
-        setOf(
-            "res/drawable/quantum_launchscreen_youtube.xml",
-            "res/drawable-sw600dp/quantum_launchscreen_youtube.xml"
-        ).forEach editSplashScreen@{ resourceFile ->
-            document(resourceFile).use { document ->
-                val layerList = document.getElementsByTagName("layer-list").item(0) as Element
+        var launchScreenArray = emptyArray<String>()
 
-                val childNodes = layerList.childNodes
-                for (i in 0 until childNodes.length) {
-                    val node = childNodes.item(i)
-                    if (node is Element && node.hasAttribute("android:drawable")) {
-                        node.setAttribute("android:drawable", SPLASH_SCREEN_COLOR_ATTRIBUTE)
+        document("res/values/styles.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+            val childNodes = resourcesNode.childNodes
+
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
+                val nodeAttributeName = node.getAttribute("name")
+                if (nodeAttributeName.startsWith("Base.Theme.YouTube.Launcher")) {
+                    val itemNodes = node.childNodes
+
+                    for (j in 0 until itemNodes.length) {
+                        val item = itemNodes.item(j) as? Element ?: continue
+
+                        val itemAttributeName = item.getAttribute("name")
+                        if (itemAttributeName == "android:windowBackground" && item.textContent != null) {
+                            launchScreenArray += item.textContent.split("/")[1]
+                        }
+                    }
+                }
+            }
+        }
+
+        launchScreenArray
+            .distinct()
+            .forEach { fileName ->
+                arrayOf("drawable", "drawable-sw600dp").forEach editSplashScreen@{ drawable ->
+                    val targetXmlPath = get("res").resolve(drawable).resolve("$fileName.xml")
+                    if (!targetXmlPath.exists()) {
                         return@editSplashScreen
                     }
-                }
+                    document("res/$drawable/$fileName.xml").use { document ->
+                        val layerList =
+                            document.getElementsByTagName("layer-list").item(0) as Element
 
-                throw PatchException("Failed to modify launch screen")
-            }
-        }
+                        val childNodes = layerList.childNodes
+                        for (i in 0 until childNodes.length) {
+                            val node = childNodes.item(i)
+                            if (node is Element && node.hasAttribute("android:drawable")) {
+                                node.setAttribute("android:drawable", SPLASH_SCREEN_COLOR_ATTRIBUTE)
+                                return@editSplashScreen
+                            }
+                        }
 
-        if (is_19_32_or_greater) {
-            // Fix the splash screen dark mode background color.
-            // In earlier versions of the app this is white and makes no sense for dark mode.
-            // This is only required for 19.32 and greater, but is applied to all targets.
-            // Only dark mode needs this fix as light mode correctly uses the custom color.
-            document("res/values-night/styles.xml").use { document ->
-                val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-                val childNodes = resourcesNode.childNodes
-
-                for (i in 0 until childNodes.length) {
-                    val node = childNodes.item(i) as? Element ?: continue
-                    val nodeAttributeName = node.getAttribute("name")
-                    if (nodeAttributeName == "Theme.YouTube.Launcher" || nodeAttributeName == "Theme.YouTube.Launcher.Cairo") {
-                        val nodeAttributeParent = node.getAttribute("parent")
-
-                        val style = document.createElement("style")
-                        style.setAttribute("name", "Theme.YouTube.Home")
-                        style.setAttribute("parent", nodeAttributeParent)
-
-                        val windowItem = document.createElement("item")
-                        windowItem.setAttribute("name", "android:windowBackground")
-                        windowItem.textContent = "@color/yt_black1"
-                        style.appendChild(windowItem)
-
-                        resourcesNode.removeChild(node)
-                        resourcesNode.appendChild(style)
+                        throw PatchException("Failed to modify launch screen")
                     }
                 }
             }
-        }
 
     }
 }

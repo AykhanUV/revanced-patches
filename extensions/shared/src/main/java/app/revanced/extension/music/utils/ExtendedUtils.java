@@ -2,7 +2,6 @@ package app.revanced.extension.music.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -18,10 +17,6 @@ public class ExtendedUtils extends PackageUtils {
             return false;
 
         return isVersionToLessThan(Settings.SPOOF_APP_VERSION_TARGET.get(), versionName);
-    }
-
-    private static int dpToPx(float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 
     @SuppressWarnings("deprecation")

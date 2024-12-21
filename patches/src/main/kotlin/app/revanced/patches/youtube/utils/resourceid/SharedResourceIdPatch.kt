@@ -28,6 +28,8 @@ var appRelatedEndScreenResults = -1L
     private set
 var autoNavPreviewStub = -1L
     private set
+var autoNavScrollCancelPadding = -1L
+    private set
 var autoNavToggle = -1L
     private set
 var backgroundCategory = -1L
@@ -132,13 +134,15 @@ var modernMiniPlayerRewindButton = -1L
     private set
 var musicAppDeeplinkButtonView = -1L
     private set
-var notice = -1L
-    private set
 var notificationBigPictureIconWidth = -1L
     private set
 var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var playerCollapseButton = -1L
+    private set
+var playerControlPreviousButtonTouchArea = -1L
+    private set
+var playerControlNextButtonTouchArea = -1L
     private set
 var playerVideoTitleView = -1L
     private set
@@ -263,6 +267,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         autoNavPreviewStub = resourceMappings[
             ID,
             "autonav_preview_stub"
+        ]
+        autoNavScrollCancelPadding = resourceMappings[
+            DIMEN,
+            "autonav_scroll_cancel_padding"
         ]
         autoNavToggle = resourceMappings[
             ID,
@@ -472,10 +480,6 @@ internal val sharedResourceIdPatch = resourcePatch(
             ID,
             "music_app_deeplink_button_view"
         ]
-        notice = resourceMappings[
-            ID,
-            "notice"
-        ]
         notificationBigPictureIconWidth = resourceMappings[
             DIMEN,
             "notification_big_picture_icon_width"
@@ -487,6 +491,14 @@ internal val sharedResourceIdPatch = resourcePatch(
         playerCollapseButton = resourceMappings[
             ID,
             "player_collapse_button"
+        ]
+        playerControlPreviousButtonTouchArea = resourceMappings[
+            ID,
+            "player_control_previous_button_touch_area"
+        ]
+        playerControlNextButtonTouchArea = resourceMappings[
+            ID,
+            "player_control_next_button_touch_area"
         ]
         playerVideoTitleView = resourceMappings[
             ID,

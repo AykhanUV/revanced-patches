@@ -17,6 +17,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -461,11 +462,29 @@ public class Utils {
         return false;
     }
 
+    public static boolean isDarkModeEnabled() {
+        return isDarkModeEnabled(context);
+    }
+
+    public static boolean isDarkModeEnabled(Context context) {
+        Configuration config = context.getResources().getConfiguration();
+        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+    }
+
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
     public static boolean isSDKAbove(int sdk) {
         return Build.VERSION.SDK_INT >= sdk;
+    }
+
+    public static int dpToPx(float dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 
     /**

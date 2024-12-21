@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Bedienungshilfen für den Video-Player aktivieren?</string>
     <string name="accessibility_settings_edu_opt_out_text">Ihre Steuerungen wurden angepasst, da ein Barrierefreiheitsdienst aktiviert ist.</string>
@@ -255,9 +255,6 @@ Bekannte Probleme: Da dies eine Funktion in der Entwicklungsphase von Google ist
     <string name="revanced_enable_swipe_volume_summary_off">Lautstärkegeste ist deaktiviert</string>
     <string name="revanced_enable_swipe_volume_summary_on">Lautstärkegeste ist aktiviert</string>
     <string name="revanced_enable_swipe_volume_title">Aktiviere Lautstärkegesten</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigationsleiste ist nicht transparent.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigationsleiste ist transparent.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Transparente Navigationsleiste aktivieren</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Vollbild-Eingabe beim Herunterwischen unter dem Videoplayer ist deaktiviert.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is enabled.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Enable watch panel gestures</string>
@@ -727,7 +724,7 @@ Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderung
     <string name="revanced_hide_self_sponsor_cards_title">Verstecke selbstgesponserte Karten</string>
     <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">\"Im TV anschauen\"-Menü wird angezeigt.</string>
     <string name="revanced_hide_settings_menu_privacy_summary_off">Privatsphäre-Menü wird angezeigt.</string>
-    <string name="revanced_hide_settings_menu_privacy_title"></string>
+    <string name="revanced_hide_settings_menu_privacy_title" />
     <string name="revanced_hide_settings_menu_summary">Elemente im YouTube-Einstellungsmenü verstecken</string>
     <string name="revanced_hide_settings_menu_title">YouTube Einstellungsmenü verstecken</string>
     <string name="revanced_hide_share_button_summary_off">Share button is shown.</string>
