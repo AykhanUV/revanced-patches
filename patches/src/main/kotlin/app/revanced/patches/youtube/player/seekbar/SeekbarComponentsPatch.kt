@@ -22,6 +22,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playerSeekbarColorFingerprint
+import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -37,6 +38,7 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -490,7 +492,20 @@ val seekbarComponentsPatch = bytecodePatch(
 
             updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
         } else {
-            println("WARNING: \"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+            printWarn("\"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+        }
+
+        // endregion
+
+        // region patch for enable cairo seekbar
+
+        if (is_19_23_or_greater) {
+            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
+                45617850L,
+                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
+            )
+
+            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
         }
 
         // endregion

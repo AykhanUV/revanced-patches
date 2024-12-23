@@ -246,11 +246,19 @@ public class GeneralPatch {
     }
 
     public static boolean useTranslucentNavigationStatusBar(boolean original) {
-        if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
-            return false;
+        try {
+            if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
+                return false;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to load useTranslucentNavigationStatusBar", ex);
         }
 
         return original;
+    }
+
+    public static boolean enableTranslucentNavigationBar() {
+        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
     }
 
     private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
@@ -260,22 +268,27 @@ public class GeneralPatch {
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
     public static boolean useTranslucentNavigationButtons(boolean original) {
-        // Feature requires Android 13+
-        if (!isSDKAbove(33)) {
-            return original;
-        }
+        try {
+            // Feature requires Android 13+
+            if (!isSDKAbove(33)) {
+                return original;
+            }
 
-        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
-            return original;
-        }
+            if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
+                return original;
+            }
 
-        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
-            return false;
-        }
+            if (DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
+                return false;
+            }
 
-        return Utils.isDarkModeEnabled()
-                ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
-                : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
+            return Utils.isDarkModeEnabled()
+                    ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+                    : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
+        } catch (Exception ex) {
+            Logger.printException(() -> "Failed to load useTranslucentNavigationButtons", ex);
+        }
+        return original;
     }
 
     // endregion
