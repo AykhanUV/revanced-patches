@@ -70,6 +70,9 @@ Limitations:
 
 Press and hold the More button to show the Custom actions dialog."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
+    <string name="revanced_enable_translucent_status_bar_summary_off">Status bar is opaque.</string>
+    <string name="revanced_enable_translucent_status_bar_summary_on">Status bar is translucent.</string>
+    <string name="revanced_enable_translucent_status_bar_title">Enable translucent status bar</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
@@ -172,6 +175,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">Unable to generate playlist due to channel id mismatch.</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">All contents (Sort by time)</string>

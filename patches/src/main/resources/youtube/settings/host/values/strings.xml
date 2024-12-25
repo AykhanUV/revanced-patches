@@ -343,6 +343,9 @@ Limitations:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
+    <string name="revanced_enable_translucent_status_bar_summary_off">Status bar is opaque.</string>
+    <string name="revanced_enable_translucent_status_bar_summary_on">Status bar is translucent.</string>
+    <string name="revanced_enable_translucent_status_bar_title">Enable translucent status bar</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is disabled.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is enabled.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Enable watch panel gestures</string>
@@ -1161,6 +1164,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced after the screen in turned on.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>

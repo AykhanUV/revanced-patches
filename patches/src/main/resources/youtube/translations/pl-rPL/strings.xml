@@ -235,6 +235,9 @@ Notki:
     <string name="revanced_disable_translucent_status_bar_summary_off">Włączona</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Wyłączona</string>
     <string name="revanced_disable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
+    <string name="revanced_enable_translucent_status_bar_summary_off">Wyłączona</string>
+    <string name="revanced_enable_translucent_status_bar_summary_on">Włączona</string>
+    <string name="revanced_enable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
     <string name="revanced_disable_video_description_interaction_summary">"Wyłącza następujące interakcje, gdy opis filmu jest otworzony:
 
 • Stuknij, by przewijać
@@ -1156,6 +1159,7 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
     <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">Czarna YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>

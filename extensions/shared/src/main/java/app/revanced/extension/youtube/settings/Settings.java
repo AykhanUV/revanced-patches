@@ -147,6 +147,7 @@ public class Settings extends BaseSettings {
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", FALSE);
     public static final BooleanSetting DISABLE_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_splash_animation", TRUE, true);
+    public static final BooleanSetting ENABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_enable_translucent_status_bar", FALSE, true);
     public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
@@ -371,7 +372,7 @@ public class Settings extends BaseSettings {
     // PreferenceScreen: Player - Player buttons
     public static final BooleanSetting HIDE_PLAYER_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_player_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_PLAYER_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_player_captions_button", FALSE, true);
-    public static final BooleanSetting HIDE_PLAYER_CAST_BUTTON = new BooleanSetting("revanced_hide_player_cast_button", TRUE, true);
+    public static final BooleanSetting HIDE_PLAYER_CAST_BUTTON = new BooleanSetting("revanced_hide_player_cast_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_COLLAPSE_BUTTON = new BooleanSetting("revanced_hide_player_collapse_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_FULLSCREEN_BUTTON = new BooleanSetting("revanced_hide_player_fullscreen_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_PREVIOUS_NEXT_BUTTON = new BooleanSetting("revanced_hide_player_previous_next_button", FALSE, true);
