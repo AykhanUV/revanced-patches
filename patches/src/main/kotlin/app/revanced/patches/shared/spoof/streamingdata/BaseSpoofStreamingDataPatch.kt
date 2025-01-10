@@ -6,13 +6,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -21,6 +19,7 @@ import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -362,12 +361,23 @@ fun baseSpoofStreamingDataPatch(
 
         // endregion
 
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofStreamingData"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
+        // region Set DroidGuard poToken.
+
+        poTokenToStringFingerprint.mutableClassOrThrow().let {
+            val poTokenClass = it.fields.find { field ->
+                field.accessFlags == AccessFlags.PRIVATE.value && field.type.startsWith("L")
+            }!!.type
+
+            findMethodOrThrow(poTokenClass) {
+                name == "<init>" &&
+                        parameters == listOf("[B")
+            }.addInstruction(
+                1,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setDroidGuardPoToken([B)V"
+            )
+        }
+
+        // endregion
 
         executeBlock()
 

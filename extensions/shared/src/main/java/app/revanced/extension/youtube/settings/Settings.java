@@ -38,6 +38,7 @@ import app.revanced.extension.youtube.patches.general.LayoutSwitchPatch.FormFact
 import app.revanced.extension.youtube.patches.general.MiniplayerPatch;
 import app.revanced.extension.youtube.patches.general.YouTubeMusicActionsPatch;
 import app.revanced.extension.youtube.patches.misc.WatchHistoryPatch.WatchHistoryType;
+import app.revanced.extension.youtube.patches.player.ExitFullscreenPatch.FullscreenMode;
 import app.revanced.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
 import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
@@ -236,7 +237,7 @@ public class Settings extends BaseSettings {
 
     // PreferenceScreen: General - Toolbar
     public static final BooleanSetting CHANGE_YOUTUBE_HEADER = new BooleanSetting("revanced_change_youtube_header", TRUE, true);
-    public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR = new BooleanSetting("revanced_enable_wide_search_bar", TRUE, true);
+    public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR = new BooleanSetting("revanced_enable_wide_search_bar", FALSE, true);
     public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR_WITH_HEADER = new BooleanSetting("revanced_enable_wide_search_bar_with_header", TRUE, true);
     public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR_IN_YOU_TAB = new BooleanSetting("revanced_enable_wide_search_bar_in_you_tab", FALSE, true);
     public static final BooleanSetting HIDE_TOOLBAR_CAST_BUTTON = new BooleanSetting("revanced_hide_toolbar_cast_button", FALSE, true);
@@ -339,6 +340,8 @@ public class Settings extends BaseSettings {
 
     // PreferenceScreen: Player - Fullscreen
     public static final BooleanSetting DISABLE_ENGAGEMENT_PANEL = new BooleanSetting("revanced_disable_engagement_panel", FALSE, true);
+    public static final BooleanSetting ENTER_FULLSCREEN = new BooleanSetting("revanced_enter_fullscreen", FALSE);
+    public static final EnumSetting<FullscreenMode> EXIT_FULLSCREEN = new EnumSetting<>("revanced_exit_fullscreen", FullscreenMode.DISABLED);
     public static final BooleanSetting SHOW_VIDEO_TITLE_SECTION = new BooleanSetting("revanced_show_video_title_section", TRUE, true, parent(DISABLE_ENGAGEMENT_PANEL));
     public static final BooleanSetting HIDE_AUTOPLAY_PREVIEW = new BooleanSetting("revanced_hide_autoplay_preview", FALSE, true);
     public static final BooleanSetting HIDE_LIVE_CHAT_REPLAY_BUTTON = new BooleanSetting("revanced_hide_live_chat_replay_button", FALSE);
@@ -358,7 +361,6 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting DISABLE_LANDSCAPE_MODE = new BooleanSetting("revanced_disable_landscape_mode", FALSE, true);
     public static final BooleanSetting ENABLE_COMPACT_CONTROLS_OVERLAY = new BooleanSetting("revanced_enable_compact_controls_overlay", FALSE, true);
-    public static final BooleanSetting FORCE_FULLSCREEN = new BooleanSetting("revanced_force_fullscreen", FALSE, true);
     public static final BooleanSetting KEEP_LANDSCAPE_MODE = new BooleanSetting("revanced_keep_landscape_mode", FALSE, true);
     public static final LongSetting KEEP_LANDSCAPE_MODE_TIMEOUT = new LongSetting("revanced_keep_landscape_mode_timeout", 3000L, true);
 
@@ -372,7 +374,7 @@ public class Settings extends BaseSettings {
     // PreferenceScreen: Player - Player buttons
     public static final BooleanSetting HIDE_PLAYER_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_player_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_PLAYER_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_player_captions_button", FALSE, true);
-    public static final BooleanSetting HIDE_PLAYER_CAST_BUTTON = new BooleanSetting("revanced_hide_player_cast_button", FALSE, true);
+    public static final BooleanSetting HIDE_PLAYER_CAST_BUTTON = new BooleanSetting("revanced_hide_player_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_PLAYER_COLLAPSE_BUTTON = new BooleanSetting("revanced_hide_player_collapse_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_FULLSCREEN_BUTTON = new BooleanSetting("revanced_hide_player_fullscreen_button", FALSE, true);
     public static final BooleanSetting HIDE_PLAYER_PREVIOUS_NEXT_BUTTON = new BooleanSetting("revanced_hide_player_previous_next_button", FALSE, true);
@@ -521,7 +523,9 @@ public class Settings extends BaseSettings {
     @Deprecated // Patch is obsolete and no longer works with 19.09+
     public static final BooleanSetting DISABLE_HDR_AUTO_BRIGHTNESS = new BooleanSetting("revanced_disable_hdr_auto_brightness", TRUE, true, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting DISABLE_SWIPE_TO_SWITCH_VIDEO = new BooleanSetting("revanced_disable_swipe_to_switch_video", TRUE, true);
-    public static final BooleanSetting DISABLE_WATCH_PANEL_GESTURES = new BooleanSetting("revanced_disable_watch_panel_gestures", FALSE, true);
+    public static final BooleanSetting DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER = new BooleanSetting("revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player", TRUE, true);
+    public static final BooleanSetting DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_IN_THE_PLAYER = new BooleanSetting("revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player", FALSE, true);
+    public static final BooleanSetting DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE = new BooleanSetting("revanced_disable_swipe_to_exit_fullscreen_mode", FALSE, true);
     public static final BooleanSetting SWIPE_BRIGHTNESS_AUTO = new BooleanSetting("revanced_swipe_brightness_auto", TRUE, false, false);
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1.0f, false, false);
 
@@ -531,7 +535,6 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting DEFAULT_VIDEO_QUALITY_MOBILE = new IntegerSetting("revanced_default_video_quality_mobile", -2);
     public static final IntegerSetting DEFAULT_VIDEO_QUALITY_WIFI = new IntegerSetting("revanced_default_video_quality_wifi", -2);
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE, true);
-    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_LIVE = new BooleanSetting("revanced_disable_default_playback_speed_live", TRUE);
     public static final BooleanSetting ENABLE_CUSTOM_PLAYBACK_SPEED = new BooleanSetting("revanced_enable_custom_playback_speed", FALSE, true);
     public static final BooleanSetting CUSTOM_PLAYBACK_SPEED_MENU_TYPE = new BooleanSetting("revanced_custom_playback_speed_menu_type", FALSE, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5", true, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
@@ -542,6 +545,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE, true);
     // Experimental Flags
     public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC = new BooleanSetting("revanced_disable_default_playback_speed_music", TRUE, true);
+    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE = new BooleanSetting("revanced_disable_default_playback_speed_music_type", FALSE, true, parent(DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC));
     public static final BooleanSetting ENABLE_DEFAULT_PLAYBACK_SPEED_SHORTS = new BooleanSetting("revanced_enable_default_playback_speed_shorts", FALSE);
     public static final BooleanSetting SKIP_PRELOADED_BUFFER = new BooleanSetting("revanced_skip_preloaded_buffer", FALSE, true, "revanced_skip_preloaded_buffer_user_dialog_message");
     public static final BooleanSetting SKIP_PRELOADED_BUFFER_TOAST = new BooleanSetting("revanced_skip_preloaded_buffer_toast", TRUE);

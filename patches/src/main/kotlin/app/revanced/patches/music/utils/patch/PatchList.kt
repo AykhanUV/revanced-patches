@@ -23,7 +23,7 @@ internal enum class PatchList(
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
@@ -56,6 +56,10 @@ internal enum class PatchList(
     DISABLE_DISLIKE_REDIRECTION(
         "Disable dislike redirection",
         "Adds an option to disable redirection to the next track when clicking the Dislike button."
+    ),
+    DISABLE_MUSIC_VIDEO_IN_ALBUM(
+        "Disable music video in album",
+        "Adds option to redirect music videos from albums."
     ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
