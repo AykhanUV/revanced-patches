@@ -9,7 +9,6 @@ import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.getPlay
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
-import org.apache.commons.lang3.ArrayUtils
 import org.apache.commons.lang3.StringUtils
 import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
@@ -88,7 +87,6 @@ class StreamingDataRequest private constructor(
     }
 
     companion object {
-        private var CLIENT_ORDER_TO_USE: Array<AppClient.ClientType>
         private const val AUTHORIZATION_HEADER = "Authorization"
         private const val VISITOR_ID_HEADER = "X-Goog-Visitor-Id"
         private val REQUEST_HEADER_KEYS = arrayOf(
@@ -96,6 +94,10 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
+
+        private val CLIENT_ORDER_TO_USE: Array<AppClient.ClientType> =
+            availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_TYPE.get())
+
         private var lastSpoofedClientType: AppClient.ClientType? = null
 
 
@@ -108,6 +110,7 @@ class StreamingDataRequest private constructor(
          * Any arbitrarily large value, but must be at least twice [.HTTP_TIMEOUT_MILLISECONDS]
          */
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
+
         @GuardedBy("itself")
         val cache: MutableMap<String, StreamingDataRequest> = Collections.synchronizedMap(
             object : LinkedHashMap<String, StreamingDataRequest>(100) {
@@ -130,22 +133,6 @@ class StreamingDataRequest private constructor(
             get() = lastSpoofedClientType
                 ?.friendlyName
                 ?: "Unknown"
-
-        init {
-            val allClientTypes: Array<AppClient.ClientType> = availableClientTypes
-            val preferredClient = BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
-
-            CLIENT_ORDER_TO_USE = allClientTypes
-            if (ArrayUtils.indexOf(allClientTypes, preferredClient) >= 0) {
-                CLIENT_ORDER_TO_USE[0] = preferredClient
-                var i = 1
-                for (c in allClientTypes) {
-                    if (c != preferredClient) {
-                        CLIENT_ORDER_TO_USE[i++] = c
-                    }
-                }
-            }
-        }
 
         @JvmStatic
         fun fetchRequest(
@@ -184,11 +171,13 @@ class StreamingDataRequest private constructor(
             Logger.printDebug { "Fetching video streams for: $videoId using client: $clientType" }
 
             try {
-                val connection = getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType.userAgent)
+                val connection =
+                    getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType)
                 connection.connectTimeout = HTTP_TIMEOUT_MILLISECONDS
                 connection.readTimeout = HTTP_TIMEOUT_MILLISECONDS
 
-                val usePoToken = clientType.requirePoToken && !StringUtils.isAnyEmpty(botGuardPoToken, visitorId)
+                val usePoToken =
+                    clientType.requirePoToken && !StringUtils.isAnyEmpty(botGuardPoToken, visitorId)
 
                 for (key in REQUEST_HEADER_KEYS) {
                     var value = playerHeaders[key]
@@ -261,7 +250,8 @@ class StreamingDataRequest private constructor(
             // Retry with different client if empty response body is received.
             for (clientType in CLIENT_ORDER_TO_USE) {
                 if (clientType.requireAuth &&
-                    playerHeaders[AUTHORIZATION_HEADER] == null) {
+                    playerHeaders[AUTHORIZATION_HEADER] == null
+                ) {
                     Logger.printDebug { "Skipped login-required client (incognito mode or not logged in)\nClient: $clientType\nVideo: $videoId" }
                     continue
                 }
@@ -283,7 +273,9 @@ class StreamingDataRequest private constructor(
                                 ByteArrayOutputStream().use { stream ->
                                     val buffer = ByteArray(2048)
                                     var bytesRead: Int
-                                    while ((inputStream.read(buffer).also { bytesRead = it }) >= 0) {
+                                    while ((inputStream.read(buffer)
+                                            .also { bytesRead = it }) >= 0
+                                    ) {
                                         stream.write(buffer, 0, bytesRead)
                                     }
                                     lastSpoofedClientType = clientType

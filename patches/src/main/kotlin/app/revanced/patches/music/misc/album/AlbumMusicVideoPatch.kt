@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.dismiss.dismissQueueHookPatch
 import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.DISABLE_MUSIC_VIDEO_IN_ALBUM
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -39,7 +38,6 @@ val albumMusicVideoPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        dismissQueueHookPatch,
         videoInformationPatch,
         playerResponseMethodHookPatch,
     )
@@ -77,7 +75,8 @@ val albumMusicVideoPatch = bytecodePatch(
 
         audioVideoSwitchToggleConstructorFingerprint.methodOrThrow().apply {
             val onClickListenerIndex = indexOfAudioVideoSwitchSetOnClickListenerInstruction(this)
-            val viewRegister = getInstruction<FiveRegisterInstruction>(onClickListenerIndex).registerC
+            val viewRegister =
+                getInstruction<FiveRegisterInstruction>(onClickListenerIndex).registerC
 
             addInstruction(
                 onClickListenerIndex + 1,
@@ -85,11 +84,13 @@ val albumMusicVideoPatch = bytecodePatch(
                         "$EXTENSION_CLASS_DESCRIPTOR->setAudioVideoSwitchToggleOnLongClickListener(Landroid/view/View;)V"
             )
 
-            val onClickListenerSyntheticIndex = indexOfFirstInstructionReversedOrThrow(onClickListenerIndex) {
-                opcode == Opcode.INVOKE_DIRECT &&
-                        getReference<MethodReference>()?.name == "<init>"
-            }
-            val onClickListenerSyntheticClass = (getInstruction<ReferenceInstruction>(onClickListenerSyntheticIndex).reference as MethodReference).definingClass
+            val onClickListenerSyntheticIndex =
+                indexOfFirstInstructionReversedOrThrow(onClickListenerIndex) {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.name == "<init>"
+                }
+            val onClickListenerSyntheticClass =
+                (getInstruction<ReferenceInstruction>(onClickListenerSyntheticIndex).reference as MethodReference).definingClass
 
             findMethodOrThrow(onClickListenerSyntheticClass) {
                 name == "onClick"
