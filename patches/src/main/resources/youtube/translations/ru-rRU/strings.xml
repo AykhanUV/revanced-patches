@@ -75,11 +75,19 @@
     <string name="revanced_change_layout_entry_5">Планшет (Мин. 600 dip)</string>
     <string name="revanced_change_layout_title">Изменить макет</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Открывается прямой эфир.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Открывается канал.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Открывается канал."</string>
     <string name="revanced_change_live_ring_click_action_title">Действие нажатия на точку прямого эфира</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Текущий переключатель - Визуальный.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Текущий переключатель - Текстовый.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Изменить тип переключателя</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Цвет фона серверной панели взаимодействия не изменен.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Цвет фона серверной панели взаимодействия изменен.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Изменить фон серверной панели взаимодействия</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Некоторые панели взаимодействия используют тему, заданную на стороне сервера, а не тему программы.
+
+Изменяется цвет фона этих панелей взаимодействия.
+
+Если есть серверные изменения, цвет фона панели взаимодействия может не измениться."</string>
     <string name="revanced_change_share_sheet_summary_off">Список приложений общего доступа - встроенный.</string>
     <string name="revanced_change_share_sheet_summary_on">Список приложений общего доступа - системный.</string>
     <string name="revanced_change_share_sheet_title">Список приложений общего доступа</string>
@@ -89,6 +97,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">Остановить</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Повторять</string>
     <string name="revanced_change_shorts_repeat_state_title">Состояние повторов в Shorts</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Все подписки</string>
     <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
     <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По умолчанию</string>
@@ -103,6 +112,7 @@
     <string name="revanced_change_start_page_entry_music">Музыка</string>
     <string name="revanced_change_start_page_entry_news">Новости</string>
     <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
+    <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
     <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
     <string name="revanced_change_start_page_entry_shopping">Покупки</string>
@@ -110,6 +120,7 @@
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
     <string name="revanced_change_start_page_entry_trending">В тренде</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Виртуальная реальность</string>
     <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
     <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
     <string name="revanced_change_start_page_title">Начальная страница</string>
@@ -136,9 +147,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Значение должно быть в диапазоне от 0 до 100. Сброс по умолчанию.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Диапазон от 0 (прозрачный) до 100.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Видимость затемнения плеера</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Неверное значение цвета полосы прогресса.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Введите HEX код цвета шкалы воспроизведения.</string>
-    <string name="revanced_custom_seekbar_color_value_title">HEX код цвета шкалы воспроизведения</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Введите hex код акцентного цвета полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Пользовательский акцентный цвет полосы прогресса</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Неверный цвет полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Введите hex код основного цвета полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Пользовательский основной цвет полосы прогресса</string>
     <string name="revanced_default_app_settings_summary">Чтобы открывать ссылки YouTube с помощью RVX, настройте \"Открытие поддерживаемых ссылок\" и включите нужные поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Использование по умолчанию</string>
     <string name="revanced_default_playback_speed_title">Скорость по умолчанию</string>
@@ -366,19 +379,19 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широкая строка поиска замещает логотип YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Логотип YouTube отображается рядом с широкой строкой поиска.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Широкая строка поиска с логотипом</string>
-    <string name="revanced_enter_fullscreen_summary_off">Полноэкранный режим при запуске видео отключен.</string>
-    <string name="revanced_enter_fullscreen_summary_on">"Полноэкранный режим при запуске видео включен.
+    <string name="revanced_enter_fullscreen_summary_off">Не переходит в полноэкранный режим при запуске видео.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Переходит в полноэкранный режим при запуске видео.
 
 Не работает когда:
 - плеер свернут
 - картинка в картинке (PiP)
 - фоновый режим."</string>
-    <string name="revanced_enter_fullscreen_title">Полноэкранный режим при запуске видео</string>
+    <string name="revanced_enter_fullscreen_title">Переход в полноэкранный режим при запуске видео</string>
     <string name="revanced_exit_fullscreen_entry_1">Отключено</string>
     <string name="revanced_exit_fullscreen_entry_2">Портретный вид</string>
     <string name="revanced_exit_fullscreen_entry_3">Альбомный вид</string>
-    <string name="revanced_exit_fullscreen_entry_4">Авто поворот</string>
-    <string name="revanced_exit_fullscreen_title">Полноэкранный режим в конце видео</string>
+    <string name="revanced_exit_fullscreen_entry_4">Портретный и альбомный</string>
+    <string name="revanced_exit_fullscreen_title">Переход из полноэкранного режима в конце видео</string>
     <string name="revanced_expand_video_description_strings_default_value">Описание</string>
     <string name="revanced_expand_video_description_strings_summary">"Введите название на панели описания видео.
 Символы различаются в зависимости от языка.
@@ -421,6 +434,13 @@
     <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации для GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр элементов меню аккаунта</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Фильтровать, если совпадают.
+
+Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать только <b>Оформить подписку YouTube Premium</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Фильтровать, если содержит.
+
+Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать <b>YouTube Premium</b> или <b>Premium</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Тип фильтра меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
 Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
@@ -565,9 +585,12 @@ Shorts
     <string name="revanced_hide_download_button_summary_off">Кнопка \"Скачать\" отображена.</string>
     <string name="revanced_hide_download_button_summary_on">Кнопка \"Скачать\" скрыта.</string>
     <string name="revanced_hide_download_button_title">Кнопка \"Скачать\"</string>
-    <string name="revanced_hide_end_screen_cards_summary_off">Заставки следующих видео отображены.</string>
-    <string name="revanced_hide_end_screen_cards_summary_on">Заставки следующих видео скрыты.</string>
-    <string name="revanced_hide_end_screen_cards_title">Заставки следующих видео</string>
+    <string name="revanced_hide_end_screen_cards_summary_off">Карточки следующих видео отображены.</string>
+    <string name="revanced_hide_end_screen_cards_summary_on">Карточки следующих видео скрыты.</string>
+    <string name="revanced_hide_end_screen_cards_title">Карточки следующих видео</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина отображается.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина скрыт.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина на конечном экране</string>
     <string name="revanced_hide_expandable_chip_summary_off">Расширенные эпизоды отображены.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Расширенные эпизоды скрыты.</string>
     <string name="revanced_hide_expandable_chip_title">Расширенные эпизоды под видео</string>
@@ -579,6 +602,13 @@ Shorts
     <string name="revanced_hide_feed_captions_button_title">Кнопка \"Субтитры\" в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Список имен всплывающего меню ленты для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Фильтр всплывающего меню ленты</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Фильтровать, если совпадают.
+
+Чтобы скрыть меню <b>Воспроизведение следующих в очереди</b>, можно использовать только <b>Воспроизведение следующих в очереди</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Фильтровать, если содержит.
+
+Чтобы скрыть меню <b>Воспроизвести следующим в очереди</b>, можно использовать <b>Воспроизвести следующим</b> или <b>в очереди</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Тип фильтра выдвижного меню в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Фильтр всплывающего меню ленты отключен.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Фильтр всплывающего меню ленты включен.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Фильтр всплывающего меню ленты</string>
@@ -906,6 +936,9 @@ Shorts
     <string name="revanced_hide_self_sponsor_cards_summary_off">Карточки саморекламы отображены.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Карточки саморекламы скрыты.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Карточки саморекламы</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">Серверная панель взаимодействия показывается.</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">Серверная панель взаимодействия скрыта.</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Скрыть серверную панель взаимодействия</string>
     <string name="revanced_hide_settings_menu_about_summary_off">О приложении отображено.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">О приложении скрыто.</string>
     <string name="revanced_hide_settings_menu_about_title">О приложении</string>
@@ -1222,6 +1255,9 @@ Shorts
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">Тема панели взаимодействия не инвертирована.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">Тема панели взаимодействия инвертирована.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Инвертировать тему панели взаимодействия</string>
     <string name="revanced_keep_landscape_mode_summary">Удерживает альбомный режим в полноэкранном режиме.</string>
     <string name="revanced_keep_landscape_mode_summary_off">Портретный режим при выкл / вкл экрана.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Ландшафтный режим при выкл / вкл экрана.</string>
@@ -1478,6 +1514,8 @@ Shorts
     <string name="revanced_preference_screen_shorts_player_summary">Компоненты в плеере Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Плеер Shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Скрыть или изменить компоненты, относящиеся к панели взаимодействия.</string>
+    <string name="revanced_preference_screen_snack_bar_title">Панель взаимодействия</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Подменяет потоковые данные при проблемах с воспроизведением видео.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_preference_screen_swipe_controls_title">Управление жестами</string>

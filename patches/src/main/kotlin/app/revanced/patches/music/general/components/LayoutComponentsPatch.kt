@@ -312,7 +312,7 @@ val layoutComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_cast_button",
-            "false"
+            "true"
         )
         addSwitchPreference(
             CategoryType.GENERAL,

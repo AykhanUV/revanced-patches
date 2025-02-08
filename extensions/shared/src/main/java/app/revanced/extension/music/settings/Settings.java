@@ -6,8 +6,8 @@ import static app.revanced.extension.music.sponsorblock.objects.CategoryBehaviou
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.music.patches.general.ChangeStartPagePatch.StartPage;
 import app.revanced.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
-import app.revanced.extension.music.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -18,6 +18,7 @@ import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 
@@ -91,14 +92,14 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: General
-    public static final StringSetting CHANGE_START_PAGE = new StringSetting("revanced_change_start_page", "FEmusic_home", true);
+    public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);
     public static final BooleanSetting ENABLE_LANDSCAPE_MODE = new BooleanSetting("revanced_enable_landscape_mode", FALSE, true);
     public static final BooleanSetting CUSTOM_FILTER = new BooleanSetting("revanced_custom_filter", FALSE);
     public static final StringSetting CUSTOM_FILTER_STRINGS = new StringSetting("revanced_custom_filter_strings", "", true);
     public static final BooleanSetting HIDE_BUTTON_SHELF = new BooleanSetting("revanced_hide_button_shelf", FALSE, true);
     public static final BooleanSetting HIDE_CAROUSEL_SHELF = new BooleanSetting("revanced_hide_carousel_shelf", FALSE, true);
-    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", FALSE);
+    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_hide_category_bar", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_BUTTON = new BooleanSetting("revanced_hide_floating_button", FALSE, true);
     public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_hide_history_button", FALSE);
@@ -184,9 +185,6 @@ public class Settings extends BaseSettings {
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
     public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", FALSE, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
-    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", FALSE, true);
-    public static final EnumSetting<ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", ClientType.IOS_MUSIC_6_21, true);
-
 
     // PreferenceScreen: Return YouTube Dislike
     public static final BooleanSetting RYD_ENABLED = new BooleanSetting("revanced_ryd_enabled", TRUE);
@@ -229,6 +227,16 @@ public class Settings extends BaseSettings {
     public static final LongSetting SB_LAST_VIP_CHECK = new LongSetting("sb_last_vip_check", 0L, false, false);
 
     static {
+        // region Migration
+
+        // Old spoof versions that no longer work reliably.
+        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
+            Logger.printInfo(() -> "Resetting spoof app version target");
+            SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
+
+        // endregion
+
         // region SB import/export callbacks
 
         Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
@@ -255,16 +263,16 @@ public class Settings extends BaseSettings {
             ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.key,
             EXTERNAL_DOWNLOADER_PACKAGE_NAME.key,
             HIDE_ACCOUNT_MENU_FILTER_STRINGS.key,
+            OPEN_DEFAULT_APP_SETTINGS,
+            OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX,
+            RETURN_YOUTUBE_USERNAME_ABOUT.key,
+            RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.key,
+            RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.key,
             SB_API_URL.key,
             SETTINGS_IMPORT_EXPORT.key,
             SPOOF_APP_VERSION_TARGET.key,
             SPOOF_CLIENT_TYPE.key,
-            SPOOF_STREAMING_DATA_TYPE.key,
-            RETURN_YOUTUBE_USERNAME_ABOUT.key,
-            RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.key,
-            RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.key,
-            OPEN_DEFAULT_APP_SETTINGS,
-            OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX
+            WATCH_HISTORY_TYPE.key,
     };
 
     /**

@@ -83,8 +83,6 @@ var easySeekEduContainer = -1L
     private set
 var editSettingsAction = -1L
     private set
-var elementsImage = -1L
-    private set
 var endScreenElementLayoutCircle = -1L
     private set
 var endScreenElementLayoutIcon = -1L
@@ -104,6 +102,8 @@ var filterBarHeight = -1L
 var floatyBarTopMargin = -1L
     private set
 var fullScreenButton = -1L
+    private set
+var fullScreenEngagementAdContainer = -1L
     private set
 var fullScreenEngagementOverlay = -1L
     private set
@@ -240,6 +240,8 @@ var ytOutlineVideoCamera = -1L
 var ytOutlineXWhite = -1L
     private set
 var ytPremiumWordMarkHeader = -1L
+    private set
+var ytStaticBrandRed = -1L
     private set
 var ytWordMarkHeader = -1L
     private set
@@ -388,10 +390,6 @@ internal val sharedResourceIdPatch = resourcePatch(
             STRING,
             "edit_settings_action"
         ]
-        elementsImage = resourceMappings[
-            ID,
-            "elements_image"
-        ]
         endScreenElementLayoutCircle = resourceMappings[
             LAYOUT,
             "endscreen_element_layout_circle"
@@ -431,6 +429,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         fullScreenButton = resourceMappings[
             ID,
             "fullscreen_button"
+        ]
+        fullScreenEngagementAdContainer = resourceMappings[
+            ID,
+            "fullscreen_engagement_ad_container"
         ]
         fullScreenEngagementOverlay = resourceMappings[
             LAYOUT,
@@ -703,6 +705,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytPremiumWordMarkHeader = resourceMappings[
             ATTR,
             "ytPremiumWordmarkHeader"
+        ]
+        ytStaticBrandRed = resourceMappings[
+            ATTR,
+            "ytStaticBrandRed",
         ]
         ytWordMarkHeader = resourceMappings[
             ATTR,

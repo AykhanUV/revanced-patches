@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Replace domain</string>
+    <string name="revanced_watch_history_type_entry_3">Block watch history</string>
+    <string name="revanced_watch_history_type_summary">"• Original: Follows the watch history settings of Google account, but watch history may not work due to DNS or VPN.
+• Replace domain: Follows the watch history settings of Google account.
+• Block watch history: Watch history is blocked."</string>
+    <string name="revanced_watch_history_type_title">Watch history type</string>
+</resources>
