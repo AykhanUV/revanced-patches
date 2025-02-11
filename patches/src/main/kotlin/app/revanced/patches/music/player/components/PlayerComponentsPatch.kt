@@ -24,6 +24,7 @@ import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_29_or_greater
 import app.revanced.patches.music.utils.playservice.is_8_03_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
@@ -37,6 +38,7 @@ import app.revanced.patches.music.utils.resourceid.topEnd
 import app.revanced.patches.music.utils.resourceid.topStart
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
+import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.utils.videotype.videoTypeHookPatch
@@ -48,11 +50,13 @@ import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.adoptChild
 import app.revanced.util.cloneMutable
 import app.revanced.util.doRecursively
+import app.revanced.util.findInstructionIndicesReversed
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.matchOrNull
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.resolvable
@@ -69,6 +73,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -391,7 +396,7 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for color match player and black player background
+        // region patch for color match player, change player background and enable zen mode (6.35+)
 
         val (
             colorMathPlayerMethodParameter,
@@ -406,17 +411,19 @@ val playerComponentsPatch = bytecodePatch(
 
                 // black player background
                 val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
-                val targetMethod = getWalkerMethod(invokeDirectIndex)
-                val insertIndex = targetMethod.indexOfFirstInstructionOrThrow(Opcode.IF_NE)
 
-                targetMethod.addInstructions(
-                    insertIndex, """
-                        invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor(I)I
-                        move-result p1
-                        invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor(I)I
-                        move-result p2
-                        """
-                )
+                getWalkerMethod(invokeDirectIndex).apply {
+                    val index = indexOfFirstInstructionOrThrow(Opcode.FILLED_NEW_ARRAY)
+                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                    addInstructions(
+                        index + 2, """
+                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor([I)[I
+                            move-result-object v$register
+                            """
+                    )
+                }
+
                 Triple(
                     parameters,
                     getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference,
@@ -438,7 +445,6 @@ val playerComponentsPatch = bytecodePatch(
         }.forEach { method ->
             method.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 3
-
                 val invokeDirectIndex =
                     indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                 val invokeDirectReference =
@@ -472,6 +478,62 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_change_player_background_color",
             "false"
         )
+        addPreferenceWithIntent(
+            CategoryType.PLAYER,
+            "revanced_custom_player_background_color_primary",
+            "revanced_change_player_background_color"
+        )
+        addPreferenceWithIntent(
+            CategoryType.PLAYER,
+            "revanced_custom_player_background_color_secondary",
+            "revanced_change_player_background_color"
+        )
+
+        // endregion
+
+        // region patch for enable thick seek bar
+
+        var thickSeekBar = false
+
+        fun MutableMethod.thickSeekBarHook(index: Int, methodName: String = "enableThickSeekBar") {
+            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+            addInstructions(
+                index + 2, """
+                    invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->$methodName(Z)Z
+                    move-result v$register
+                    """
+            )
+        }
+
+        if (is_7_25_or_greater) {
+            val thickSeekBarMethodCall = thickSeekBarFeatureFlagFingerprint.methodCall()
+            val filter: Instruction.() -> Boolean = {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.toString() == thickSeekBarMethodCall
+            }
+
+            thickSeekBarInflateFingerprint.methodOrThrow().apply {
+                val indexes = findInstructionIndicesReversed(filter)
+
+                thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
+                thickSeekBarHook(indexes.last())
+            }
+
+            if (is_7_29_or_greater) {
+                thickSeekBarColorFingerprint.methodOrThrow().apply {
+                    findInstructionIndicesReversed(filter).forEach { thickSeekBarHook(it) }
+                }
+            }
+
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_change_seekbar_position",
+                "false"
+            )
+
+            thickSeekBar = true
+        }
 
         // endregion
 
@@ -708,7 +770,15 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for enable zen mode
+        if (thickSeekBar) {
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_enable_thick_seekbar",
+                "true"
+            )
+        }
+
+        // region patch for enable zen mode (~ 6.34)
 
         // this method is used for old player background (deprecated since YT Music v6.34.51)
         zenModeFingerprint.matchOrNull(miniPlayerConstructorFingerprint)?.let {
@@ -727,20 +797,6 @@ val playerComponentsPatch = bytecodePatch(
                 )
             }
         } // no exception
-
-        switchToggleColorFingerprint.methodOrThrow(miniPlayerConstructorFingerprint).apply {
-            val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
-            val walkerMethod = getWalkerMethod(invokeDirectIndex)
-
-            walkerMethod.addInstructions(
-                0, """
-                    invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->enableZenMode(I)I
-                    move-result p1
-                    invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->enableZenMode(I)I
-                    move-result p2
-                    """
-            )
-        }
 
         addSwitchPreference(
             CategoryType.PLAYER,

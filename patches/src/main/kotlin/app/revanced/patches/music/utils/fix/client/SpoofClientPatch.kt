@@ -9,8 +9,14 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_CLIENT
+import app.revanced.patches.music.utils.playbackRateBottomSheetClassFingerprint
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
+import app.revanced.patches.music.utils.playservice.is_7_33_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
+import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
@@ -18,6 +24,7 @@ import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.indexOfBrandInstruction
@@ -25,6 +32,7 @@ import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -32,6 +40,7 @@ import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -61,7 +70,13 @@ val spoofClientPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        sharedResourceIdPatch,
         blockRequestPatch,
+        versionCheckPatch,
+        customPlaybackSpeedPatch(
+            "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
+            5.0f
+        ),
     )
 
     execute {
@@ -267,6 +282,7 @@ val spoofClientPatch = bytecodePatch(
 
         // region fix for playback speed menu is not available in Podcasts
 
+        // for iOS Music
         playbackSpeedBottomSheetFingerprint.mutableClassOrThrow().let {
             val onItemClickMethod =
                 it.methods.find { method -> method.name == "onItemClick" }
@@ -300,6 +316,35 @@ val spoofClientPatch = bytecodePatch(
                     )
                 }
             }
+        }
+
+        // for Android Music
+        playbackRateBottomSheetClassFingerprint.methodOrThrow().apply {
+            val literalIndex =
+                indexOfFirstLiteralInstructionOrThrow(varispeedUnavailableTitle)
+            val insertIndex =
+                indexOfFirstInstructionReversedOrThrow(literalIndex, Opcode.IF_EQZ)
+            val insertRegister =
+                getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+            addInstructions(
+                insertIndex,
+                """
+                    invoke-static { v$insertRegister }, $EXTENSION_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenuInverse(Z)Z
+                    move-result v$insertRegister
+                    """,
+            )
+        }
+
+        // endregion
+
+        // region fix for feature flags
+
+        if (is_7_33_or_greater) {
+            playbackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYBACK_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->forceDisablePlaybackFeatureFlag(Z)Z"
+            )
         }
 
         // endregion

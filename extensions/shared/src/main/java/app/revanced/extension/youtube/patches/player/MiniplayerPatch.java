@@ -1,12 +1,12 @@
-package app.revanced.extension.youtube.patches.general;
+package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DEFAULT;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DISABLED;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_2;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_4;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DEFAULT;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DISABLED;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_1;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_2;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_3;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_4;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
@@ -147,6 +147,9 @@ public final class MiniplayerPatch {
     private static final int MODERN_OVERLAY_SUBTITLE_TEXT
             = ResourceUtils.getIdIdentifier("modern_miniplayer_subtitle_text");
 
+    private static final boolean DISABLE_RESUMING_MINIPLAYER =
+            Settings.DISABLE_RESUMING_MINIPLAYER.get();
+
     private static final MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
 
     /**
@@ -217,6 +220,13 @@ public final class MiniplayerPatch {
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableResumingStartupMiniPlayer(boolean original) {
+        return !DISABLE_RESUMING_MINIPLAYER && original;
     }
 
     /**
