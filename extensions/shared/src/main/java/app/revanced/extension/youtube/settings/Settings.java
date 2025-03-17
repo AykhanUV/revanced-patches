@@ -408,7 +408,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ENABLE_CUSTOM_SEEKBAR_COLOR = new BooleanSetting("revanced_enable_custom_seekbar_color", TRUE, true);
     public static final StringSetting CUSTOM_SEEKBAR_COLOR_PRIMARY = new StringSetting("revanced_custom_seekbar_color_primary", "#0062CC", true, parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
     public static final StringSetting CUSTOM_SEEKBAR_COLOR_ACCENT = new StringSetting("revanced_custom_seekbar_color_accent", "#000000", true, parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
-    public static final StringSetting GRADIENT_SEEKBAR_POSITIONS = new StringSetting("revanced_gradient_seekbar_positions", "0.5, 1.0", parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
+    public static final StringSetting GRADIENT_SEEKBAR_POSITIONS = new StringSetting("revanced_gradient_seekbar_positions", "0.6, 1.0", parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
     public static final BooleanSetting ENABLE_SEEKBAR_TAPPING = new BooleanSetting("revanced_enable_seekbar_tapping", TRUE);
     public static final BooleanSetting HIDE_SEEKBAR_CHAPTER_LABEL = new BooleanSetting("revanced_hide_seekbar_chapter_label", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
@@ -514,18 +514,20 @@ public class Settings extends BaseSettings {
     // PreferenceScreen: Swipe controls
     public static final BooleanSetting ENABLE_SWIPE_BRIGHTNESS = new BooleanSetting("revanced_enable_swipe_brightness", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_VOLUME = new BooleanSetting("revanced_enable_swipe_volume", TRUE, true);
-    public static final BooleanSetting ENABLE_SWIPE_SPEED = new BooleanSetting("revanced_enable_swipe_speed", TRUE, true);
-    public static final BooleanSetting ENABLE_SWIPE_SEEK = new BooleanSetting("revanced_enable_swipe_seek", TRUE, true);
+    public static final BooleanSetting ENABLE_SWIPE_SPEED = new BooleanSetting("revanced_enable_swipe_speed", FALSE, true);
+    public static final BooleanSetting ENABLE_SWIPE_SEEK = new BooleanSetting("revanced_enable_swipe_seek", FALSE, true);
     public static final BooleanSetting ENABLE_SWIPE_LOWEST_VALUE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_enable_swipe_lowest_value_auto_brightness", TRUE, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting ENABLE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_enable_save_and_restore_brightness", TRUE, true, parent(ENABLE_SWIPE_BRIGHTNESS));
-    public static final BooleanSetting ENABLE_SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_enable_swipe_press_to_engage", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final BooleanSetting ENABLE_SWIPE_HAPTIC_FEEDBACK = new BooleanSetting("revanced_enable_swipe_haptic_feedback", TRUE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final BooleanSetting SWIPE_LOCK_MODE = new BooleanSetting("revanced_swipe_gestures_lock_mode", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_magnitude_threshold", 0, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_overlay_text_size", 20, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final IntegerSetting SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
-    public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
+    public static final BooleanSetting ENABLE_SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_enable_swipe_press_to_engage", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final BooleanSetting ENABLE_SWIPE_HAPTIC_FEEDBACK = new BooleanSetting("revanced_enable_swipe_haptic_feedback", TRUE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final BooleanSetting SWIPE_LOCK_MODE = new BooleanSetting("revanced_swipe_gestures_lock_mode", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_magnitude_threshold", 0, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final IntegerSetting SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+
+    public static final BooleanSetting SWIPE_SHOW_CIRCULAR_OVERLAY = new BooleanSetting("revanced_swipe_show_circular_overlay", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final BooleanSetting SWIPE_OVERLAY_MINIMAL_STYLE = new BooleanSetting("revanced_swipe_overlay_minimal_style", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
 
     public static final IntegerSetting SWIPE_BRIGHTNESS_SENSITIVITY = new IntegerSetting("revanced_swipe_brightness_sensitivity", 100, true, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final IntegerSetting SWIPE_VOLUME_SENSITIVITY = new IntegerSetting("revanced_swipe_volume_sensitivity", 100, true, parent(ENABLE_SWIPE_VOLUME));
