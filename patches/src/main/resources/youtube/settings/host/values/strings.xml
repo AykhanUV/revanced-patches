@@ -72,12 +72,22 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
-    <string name="revanced_change_layout_entry_1">Original</string>
-    <string name="revanced_change_layout_entry_2">Phone</string>
-    <string name="revanced_change_layout_entry_3">Phone (Max 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">Tablet</string>
-    <string name="revanced_change_layout_entry_5">Tablet (Min 600 dp)</string>
-    <string name="revanced_change_layout_title">Change layout</string>
+    <string name="revanced_change_form_factor_entry_1">Default</string>
+    <string name="revanced_change_form_factor_entry_2">Phone</string>
+    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotive</string>
+    <string name="revanced_change_form_factor_title">Layout form factor</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+
+Tablet layout
+• Community posts are hidden.
+
+Automotive layout
+• Shorts open in the regular player.
+• Feed is organized by topics and channels.
+• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
 
@@ -359,6 +369,12 @@ Limitations:
     <string name="revanced_enable_swipe_press_to_engage_summary_off">Touch to activate swipe gesture.</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_on">Touch and hold to activate swipe gesture.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">Enable press-to-swipe gesture</string>
+    <string name="revanced_enable_swipe_seek_summary_off">Seek swipe is disabled.</string>
+    <string name="revanced_enable_swipe_seek_summary_on">Seek swipe is enabled.</string>
+    <string name="revanced_enable_swipe_seek_title">Enable seek gesture</string>
+    <string name="revanced_enable_swipe_speed_summary_off">Speed swipe is disabled.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">Speed swipe is enabled.</string>
+    <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Swiping up / down will not play the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down will play the next / previous video.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
@@ -1730,7 +1746,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_skip_button_sponsor">Skip sponsor</string>
     <string name="revanced_sb_skip_button_unsubmitted">Skip segment</string>
     <string name="revanced_sb_skip_ignore">Disable</string>
-    <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
+    <string name="revanced_sb_skip_seekbaronly">Show in seekbar</string>
     <string name="revanced_sb_skip_showbutton">Show a skip button</string>
     <string name="revanced_sb_skipped_filler">Skipped filler.</string>
     <string name="revanced_sb_skipped_highlight">Skipped to highlight.</string>
@@ -1915,10 +1931,19 @@ Click to see more information."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Movies or paid videos may not play.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Stable volume is not available.
+• Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
+
+• Some users may experience a new type of playback issue."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
+
+• Fixes a new type of playback issue that some users are experiencing.
+• AV1 codec may not be available."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client used to fetch streaming data is shown in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
@@ -1958,6 +1983,12 @@ Click to see more information."</string>
     <string name="revanced_swipe_overlay_text_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible.</string>
     <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
+    <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_seek_sensitivity_title">Seek swipe sensitivity</string>
+    <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>

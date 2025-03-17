@@ -71,12 +71,6 @@ Appuyez longuement pour modifier le type d'information ajouté."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Les redirections d\'URL ne sont pas contournées.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Les redirections d\'URL sont contournées.</string>
     <string name="revanced_bypass_url_redirects_title">Contourner les redirections d\'URL</string>
-    <string name="revanced_change_layout_entry_1">Original</string>
-    <string name="revanced_change_layout_entry_2">Téléphone</string>
-    <string name="revanced_change_layout_entry_3">Téléphone (Max 480 dpi)</string>
-    <string name="revanced_change_layout_entry_4">Tablette</string>
-    <string name="revanced_change_layout_entry_5">Tablette (Min 600 dpi)</string>
-    <string name="revanced_change_layout_title">Modifier la mise en page</string>
     <string name="revanced_change_live_ring_click_action_summary_off">La diffusion en direct s\'ouvre lorsque vous cliquez sur le cercle \'En direct\'.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"La chaîne s'ouvre lorsque vous cliquez sur le cercle 'En direct'.
 
@@ -228,6 +222,9 @@ Paramètres → Lecture automatique / Lecture → Lecture automatique de la vid�
     <string name="revanced_disable_like_dislike_glow_title">Désac. lueur des \'J\'aime\' et \'Je n\'aime pas\'</string>
     <string name="revanced_disable_quic_protocol_summary">"Désactive le protocole QUIC de CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Protocole QUIC</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Reprendre la lecture&lt;/b&gt; reprendra au démarrage de l\'application.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Reprendre la lecture&lt;/b&gt; est une fonctionnalité YouTube Premium.&lt;br&gt;• Ce paramètre ne force pas l\'option &lt;b&gt;Reprendre la lecture&lt;/b&gt; à être activé.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Reprendre la lecture&lt;/b&gt; ne reprendra pas au démarrage de l\'application.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Désactiver la reprise sur le Mini-lecteur</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Les shorts reprennent au démarrage de l\'application.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Les shorts ne reprennent pas au démarrage de l\'application.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Désac. \'Reprendre la lecture\' sur les Shorts</string>
@@ -435,7 +432,7 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtre du menu du compte</string>
     <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrer si correspond.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'S\'\abonner à YouTube Premium\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; comme mots-clés.</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'S\'\abonner à YouTube Premium\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; comme mots-clés.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'S\'\abonner à YouTube Premium\'&lt;/b&gt; vous pouvez utiliser &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; ou &lt;b&gt;\'Premium\'&lt;/b&gt; comme mots-clés.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Type de filtre de menu du compte</string>
     <string name="revanced_hide_account_menu_summary">"Masque les éléments du menu du compte et de l'onglet 'Vous'.
 Certains composants peuvent ne pas être masqués."</string>
@@ -580,7 +577,7 @@ Boutique"</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Liste de menus déroulant à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtre du menu déroulant</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtrer si correspond.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'Lire ensuite dans la file d\'\attente\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'dans la file d\'\attente\'&lt;/b&gt; comme mots-clés.</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'Lire ensuite dans la file d\'\attente\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'dans la file d\'\attente\'&lt;/b&gt; comme mots-clés.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'Lire ensuite dans la file d\u0027attente\'&lt;/b&gt;, vous pouvez utiliser &lt;b&gt;\'Lire ensuite\'&lt;/b&gt; ou &lt;b&gt;\'dans la file d\u0027attente\'&lt;/b&gt; comme mots-clés.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Type de filtre du menu déroulant dans les flux</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Le filtre du menu déroulant est désactivé.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Le filtre du menu déroulant est activé.</string>
@@ -912,7 +909,7 @@ Si la mise en page de l'écran du lecteur change en raison de modifications côt
     <string name="revanced_hide_self_sponsor_cards_title">Masquer les cartes autosponsorisées</string>
     <string name="revanced_hide_server_side_snack_bar_summary_off">La snack bar côté serveur est affichée.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">La snack bar côté serveur est masquée.</string>
-    <string name="revanced_hide_server_side_snack_bar_title">Cacher la snack bar côté serveur</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Masquer la snack bar côté serveur</string>
     <string name="revanced_hide_settings_menu_about_summary_off">Le menu \'À propos\' est affiché.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">Le menu \'À propos\' est masqué.</string>
     <string name="revanced_hide_settings_menu_about_title">Masquer le menu \'À propos\'</string>
@@ -1441,7 +1438,7 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_hook_buttons_title">Boutons d\'action</string>
     <string name="revanced_preference_screen_import_export_summary">Importer ou exporter les paramètres RVX.</string>
     <string name="revanced_preference_screen_import_export_title">Importer / Exporter les paramètres</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Change le style du lecteur minimisé de l\'application.</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Masquer ou changer les composants relatifs au lecteur minimisé.</string>
     <string name="revanced_preference_screen_miniplayer_title">Mini Lecteur</string>
     <string name="revanced_preference_screen_misc_title">Paramètres avancés</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Masque ou affiche les éléments de la barre de navigation.</string>
