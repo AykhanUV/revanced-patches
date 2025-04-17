@@ -1,3 +1,10 @@
+# [1.1.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.0.0...v1.1.0-dev.1) (2025-04-17)
+
+
+### Features
+
+* **Spotify - Lyrics search:** Add a button to search for song meanings on Songtell, and make the `Lyrics Search` panel less intrusive ([cd3adc4](https://github.com/AykhanUV/revanced-patches/commit/cd3adc442f7790f77b99d7aee7fdfaab0e805528))
+
 # 1.0.0 (2025-04-17)
 
 
