@@ -1,3 +1,17 @@
+# 1.0.0 (2025-04-17)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Minimize the `Search Lyrics` panel into a draggable floating button when the close button is clicked ([18aac73](https://github.com/AykhanUV/revanced-patches/commit/18aac73e8311ebaa628c64ae8945f995b643bfd4))
+* **Spotify:** Fix login by replacing `Spoof signature` patch with new `Spoof package info` patch ([71e3e87](https://github.com/AykhanUV/revanced-patches/commit/71e3e872aeb0e08e5c49940bd0f173186e4c49ba))
+
+
+### Features
+
+* **YouTube Music:** Change default settings ([59de677](https://github.com/AykhanUV/revanced-patches/commit/59de677dfea225f286fea96fe1faef7fb077bfaa))
+* **YouTube:** Change default settings ([0cfe1d1](https://github.com/AykhanUV/revanced-patches/commit/0cfe1d1053b193b79df9fe65240a613d41a04ebb))
+
 # [3.7.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.4...v3.7.0-dev.5) (2025-04-14)
 
 
