@@ -91,7 +91,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.MISC,
             "revanced_disable_cairo_splash_animation",
-            "false"
+            "true"
         )
 
         updatePatchStatus(DISABLE_CAIRO_SPLASH_ANIMATION)

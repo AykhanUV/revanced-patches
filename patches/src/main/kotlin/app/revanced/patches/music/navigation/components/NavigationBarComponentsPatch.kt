@@ -207,7 +207,7 @@ val navigationBarComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.NAVIGATION,
             "revanced_hide_navigation_samples_button",
-            "false"
+            "true"
         )
         addSwitchPreference(
             CategoryType.NAVIGATION,

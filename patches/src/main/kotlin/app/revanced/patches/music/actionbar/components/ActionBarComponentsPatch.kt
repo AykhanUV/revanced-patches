@@ -243,7 +243,7 @@ val actionBarComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.ACTION_BAR,
             "revanced_external_downloader_action",
-            "false"
+            "true"
         )
         addPreferenceWithIntent(
             CategoryType.ACTION_BAR,
