@@ -1,3 +1,10 @@
+# [1.1.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2025-04-20)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Update Gemini to 2.5 Flash (CoT disabled) & add `Yandex transcription` setting for Gemini button ([a7ed8e5](https://github.com/AykhanUV/revanced-patches/commit/a7ed8e58c0466e59b0d5c4b3d4292f1b1dd7bd35))
+
 # [1.1.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.0.0...v1.1.0-dev.1) (2025-04-17)
 
 
