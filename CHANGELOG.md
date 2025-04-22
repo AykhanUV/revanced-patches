@@ -1,3 +1,10 @@
+# [1.1.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2025-04-22)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini translation for languages not supported by Yandex transcription ([b4421fe](https://github.com/AykhanUV/revanced-patches/commit/b4421fe8e8f797b8a06577656344c8945a71f1bc))
+
 # [1.1.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2025-04-20)
 
 
