@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/AykhanUV/revanced-patches/compare/v1.0.0...v1.1.0) (2025-04-24)
+
+
+### Features
+
+* **Spotify - Lyrics search:** Add a button to search for song meanings on Songtell, and make the `Lyrics Search` panel less intrusive ([cd3adc4](https://github.com/AykhanUV/revanced-patches/commit/cd3adc442f7790f77b99d7aee7fdfaab0e805528))
+* **YouTube - Overlay buttons:** Add Gemini translation for languages not supported by Yandex transcription ([b4421fe](https://github.com/AykhanUV/revanced-patches/commit/b4421fe8e8f797b8a06577656344c8945a71f1bc))
+* **YouTube - Overlay buttons:** Update Gemini to 2.5 Flash (CoT disabled) & add `Yandex transcription` setting for Gemini button ([a7ed8e5](https://github.com/AykhanUV/revanced-patches/commit/a7ed8e58c0466e59b0d5c4b3d4292f1b1dd7bd35))
+
 # [1.1.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2025-04-22)
 
 
