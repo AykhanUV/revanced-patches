@@ -1,3 +1,16 @@
+# [1.2.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0...v1.2.0-dev.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([4193888](https://github.com/AykhanUV/revanced-patches/commit/4193888a4eff8b78decd851d14538513dfd3a7cb))
+* **YouTube - Overlay buttons:** Use Gemini 2.0 Flash model for summaries to prevent 'Deadline expired' errors ([5dcac03](https://github.com/AykhanUV/revanced-patches/commit/5dcac0329b25b3ed5dcbf143f4ca8914398a0485))
+
+
+### Features
+
+* **YouTube - Settings:** Make categories clickable in search results ([d016a49](https://github.com/AykhanUV/revanced-patches/commit/d016a4959a8cf0f7bdf5dd460d61afe6533277d8))
+
 # [1.1.0](https://github.com/AykhanUV/revanced-patches/compare/v1.0.0...v1.1.0) (2025-04-24)
 
 
