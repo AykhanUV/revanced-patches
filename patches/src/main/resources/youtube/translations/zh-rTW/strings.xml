@@ -69,6 +69,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">未繞過 URL 重新導向。</string>
     <string name="revanced_bypass_url_redirects_summary_on">已繞過 URL 重新導向。</string>
     <string name="revanced_bypass_url_redirects_title">繞過 URL 重新導向</string>
+    <string name="revanced_cancel">取消</string>
     <string name="revanced_change_form_factor_entry_1">預設</string>
     <string name="revanced_change_form_factor_entry_2">手機</string>
     <string name="revanced_change_form_factor_entry_3">手機 (最大 480 dp)</string>
@@ -143,6 +144,9 @@
     <string name="revanced_change_youtube_header_summary_off">預設標題已啟用</string>
     <string name="revanced_change_youtube_header_summary_on">高級標題已啟用</string>
     <string name="revanced_change_youtube_header_title">變更 YouTube 標題</string>
+    <string name="revanced_color_invalid_toast">無效的顏色</string>
+    <string name="revanced_copy">複製</string>
+    <string name="revanced_copy_error">複製文字失敗</string>
     <string name="revanced_custom_filter_strings_summary">依行分隔的名稱篩選元件</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選器</string>
     <string name="revanced_custom_filter_summary_off">自訂篩選已停用</string>
@@ -162,7 +166,6 @@
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
     <string name="revanced_custom_seekbar_color_accent_summary">輸入搜尋欄強調色的十六進位代碼。</string>
     <string name="revanced_custom_seekbar_color_accent_title">自訂搜尋欄強調色</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">搜尋欄顏色無效。</string>
     <string name="revanced_custom_seekbar_color_primary_summary">輸入搜尋欄原色的十六進位代碼。</string>
     <string name="revanced_custom_seekbar_color_primary_title">自訂搜尋欄原色</string>
     <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
@@ -481,6 +484,7 @@
     <string name="revanced_hide_album_card_summary_off">專輯卡片已顯示</string>
     <string name="revanced_hide_album_card_summary_on">專輯卡片已隱藏</string>
     <string name="revanced_hide_album_card_title">隱藏專輯卡片</string>
+    <string name="revanced_hide_ask_section_title">隱藏詢問</string>
     <string name="revanced_hide_attributes_section_summary_off">特色地點, 遊戲, 和音樂部分已顯示。</string>
     <string name="revanced_hide_attributes_section_summary_on">特色地點, 遊戲, 和音樂部分均已隱藏。</string>
     <string name="revanced_hide_attributes_section_title">隱藏屬性部分</string>
@@ -1244,7 +1248,7 @@ Note:
     <string name="revanced_icon_squid_game">魷魚遊戲</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
-    <string name="revanced_icon_xisr_holiday">Xisr 假期</string>
+    <string name="revanced_icon_xisr_special">Xisr 特別版</string>
     <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑</string>
@@ -1380,15 +1384,6 @@ Note:
 
 迷你播放器可以拖曳到螢幕的任何角落。"</string>
     <string name="revanced_miniplayer_drag_and_drop_title">啟用拖曳</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">雙擊操作已停用。</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"雙擊操作已啟用。
-
- • Modern 1：雙擊將最小化影片變更為更大的尺寸。
- • Modern 2, 3：雙擊可關閉最小化影片。"</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">雙擊操作</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">拖曳已停用。</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">拖曳已啟用。</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_title">啟用拖曳。</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">顯示擴展和關閉按鈕。</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按鈕被隱藏。
 

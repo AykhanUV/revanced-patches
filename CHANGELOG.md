@@ -1,3 +1,29 @@
+# [1.2.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2025-05-14)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** Remove old instruction that no longer relevant to fix issues with notification player ([fbb8ee2](https://github.com/AykhanUV/revanced-patches/commit/fbb8ee235a756de539c5bb833d1e9657b4ca8309))
+* **YouTube - Overlay buttons:** Fix Whitelist not working for playback speed ([c5cc44e](https://github.com/AykhanUV/revanced-patches/commit/c5cc44e7b8633a91e2d915a03384417c78c6287c))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Disable safety settings for Gemini ([2ee32d3](https://github.com/AykhanUV/revanced-patches/commit/2ee32d3f4c2e721e3c4a2eac2b239325a932c180))
+
+# [1.2.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0...v1.2.0-dev.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([4193888](https://github.com/AykhanUV/revanced-patches/commit/4193888a4eff8b78decd851d14538513dfd3a7cb))
+* **YouTube - Overlay buttons:** Use Gemini 2.0 Flash model for summaries to prevent 'Deadline expired' errors ([5dcac03](https://github.com/AykhanUV/revanced-patches/commit/5dcac0329b25b3ed5dcbf143f4ca8914398a0485))
+
+
+### Features
+
+* **YouTube - Settings:** Make categories clickable in search results ([d016a49](https://github.com/AykhanUV/revanced-patches/commit/d016a4959a8cf0f7bdf5dd460d61afe6533277d8))
+
 # [1.1.0](https://github.com/AykhanUV/revanced-patches/compare/v1.0.0...v1.1.0) (2025-04-24)
 
 
