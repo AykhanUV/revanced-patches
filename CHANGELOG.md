@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0...v1.3.0) (2025-05-28)
+
+
+### Features
+
+* **YouTube:** Change default settings ([bc4ec12](https://github.com/AykhanUV/revanced-patches/commit/bc4ec12d374b300f031fae267aa190a7b9f8f639))
+
 # [1.2.0](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0...v1.2.0) (2025-05-28)
 
 
