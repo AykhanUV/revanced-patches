@@ -1,3 +1,25 @@
+# [1.2.0](https://github.com/AykhanUV/revanced-patches/compare/v1.1.0...v1.2.0) (2025-05-28)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** Remove old instruction that no longer relevant to fix issues with notification player ([fbb8ee2](https://github.com/AykhanUV/revanced-patches/commit/fbb8ee235a756de539c5bb833d1e9657b4ca8309))
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([4193888](https://github.com/AykhanUV/revanced-patches/commit/4193888a4eff8b78decd851d14538513dfd3a7cb))
+* **YouTube - Custom branding icon:** Resolve patch failure for some icons ([2b0b218](https://github.com/AykhanUV/revanced-patches/commit/2b0b2186b6849998044d0be36d5debad2262cddd))
+* **YouTube - Overlay buttons:** Fix Whitelist not working for playback speed ([c5cc44e](https://github.com/AykhanUV/revanced-patches/commit/c5cc44e7b8633a91e2d915a03384417c78c6287c))
+* **YouTube - Overlay buttons:** Use Gemini 2.0 Flash model for summaries to prevent 'Deadline expired' errors ([5dcac03](https://github.com/AykhanUV/revanced-patches/commit/5dcac0329b25b3ed5dcbf143f4ca8914398a0485))
+* **YouTube - Overlay buttons:** Whitelisted channels could not be imported or exported ([3a4143a](https://github.com/AykhanUV/revanced-patches/commit/3a4143a61172ff0b5f6f658fb0f653bfe5a8ad4f))
+* **YouTube - Settings:** Potential crash related to color preferences ([6b1c1c3](https://github.com/AykhanUV/revanced-patches/commit/6b1c1c3aa0012db5a70bec3c3e50c2e6afa8a02d))
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/AykhanUV/revanced-patches/issues/4893)) ([3fa820c](https://github.com/AykhanUV/revanced-patches/commit/3fa820cef8f20fcc852a99199b4fb1c2d98adc32))
+* **YouTube - Hide description components:** Add `Hide Ask section` setting ([833bac9](https://github.com/AykhanUV/revanced-patches/commit/833bac92f641b7a5d3679af50c4b79b521f313af))
+* **YouTube - Overlay buttons:** Disable safety settings for Gemini ([2ee32d3](https://github.com/AykhanUV/revanced-patches/commit/2ee32d3f4c2e721e3c4a2eac2b239325a932c180))
+* **YouTube - Settings:** Add search history and result highlighting to the settings search ([07e21e4](https://github.com/AykhanUV/revanced-patches/commit/07e21e47ba9242722a1d1eea367c9bc21db213eb))
+* **YouTube - Settings:** Make categories clickable in search results ([d016a49](https://github.com/AykhanUV/revanced-patches/commit/d016a4959a8cf0f7bdf5dd460d61afe6533277d8))
+
 # [1.2.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2025-05-14)
 
 
