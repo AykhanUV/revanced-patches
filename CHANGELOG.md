@@ -1,3 +1,19 @@
+# [1.2.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2025-05-28)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Resolve patch failure for some icons ([2b0b218](https://github.com/AykhanUV/revanced-patches/commit/2b0b2186b6849998044d0be36d5debad2262cddd))
+* **YouTube - Overlay buttons:** Whitelisted channels could not be imported or exported ([3a4143a](https://github.com/AykhanUV/revanced-patches/commit/3a4143a61172ff0b5f6f658fb0f653bfe5a8ad4f))
+* **YouTube - Settings:** Potential crash related to color preferences ([6b1c1c3](https://github.com/AykhanUV/revanced-patches/commit/6b1c1c3aa0012db5a70bec3c3e50c2e6afa8a02d))
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/AykhanUV/revanced-patches/issues/4893)) ([3fa820c](https://github.com/AykhanUV/revanced-patches/commit/3fa820cef8f20fcc852a99199b4fb1c2d98adc32))
+* **YouTube - Hide description components:** Add `Hide Ask section` setting ([833bac9](https://github.com/AykhanUV/revanced-patches/commit/833bac92f641b7a5d3679af50c4b79b521f313af))
+* **YouTube - Settings:** Add search history and result highlighting to the settings search ([07e21e4](https://github.com/AykhanUV/revanced-patches/commit/07e21e47ba9242722a1d1eea367c9bc21db213eb))
+
 # [1.2.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2025-05-14)
 
 

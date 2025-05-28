@@ -1285,6 +1285,16 @@
     "options": []
   },
   {
+    "name": "Fix third party launchers widgets",
+    "description": "Fixes Spotify widgets not working in third party launchers, like Nova Launcher.",
+    "use": true,
+    "dependencies": [],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
+  },
+  {
     "name": "Flyout menu components",
     "description": "Adds options to hide or change flyout menu components.",
     "use": true,
@@ -1653,6 +1663,22 @@
     "description": "Adds options to hide ads.",
     "use": true,
     "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "use": true,
+    "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
@@ -1667,22 +1693,6 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
       ]
     },
     "options": []
@@ -2157,6 +2167,23 @@
   },
   {
     "name": "Open links externally",
+    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Open links externally",
     "description": "Adds an option to always open links in your browser instead of the in-app browser.",
     "use": true,
     "dependencies": [
@@ -2170,23 +2197,6 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Open links externally",
-    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
       ]
     },
     "options": []
@@ -2548,22 +2558,25 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "description": "Removes the tracking query parameters from links before they are shared.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube"
+      "BytecodePatch"
     ],
     "compatiblePackages": {
-      "com.google.android.youtube": [
-        "19.05.36",
-        "19.16.39",
-        "19.43.41",
-        "19.44.39",
-        "19.47.53"
-      ]
+      "com.spotify.music": null
     },
-    "options": []
+    "options": [
+      {
+        "key": "shareParameters",
+        "title": "Parameters to remove",
+        "description": "A list of parameters to be removed from sharing links, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "si, utm_source, context",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Sanitize sharing links",
@@ -2577,6 +2590,25 @@
         "2024.17.0",
         "2025.05.1",
         "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.05.36",
+        "19.16.39",
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
       ]
     },
     "options": []
@@ -2602,28 +2634,6 @@
       ]
     },
     "options": []
-  },
-  {
-    "name": "Sanitize sharing links",
-    "description": "Removes the tracking query parameters from links before they are shared.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "shareParameters",
-        "title": "Parameters to remove",
-        "description": "A list of parameters to be removed from sharing links, separated by commas.",
-        "required": true,
-        "type": "kotlin.String",
-        "default": "si, utm_source, context",
-        "values": null
-      }
-    ]
   },
   {
     "name": "Seekbar components",
@@ -3255,7 +3265,7 @@
         "description": "A list of translations to be added for the RVX settings, separated by commas.",
         "required": true,
         "type": "kotlin.String",
-        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
+        "default": "ar, bg-rBG, de-rDE, el-rGR, es-rES, fr-rFR, hu-rHU, id-rID, in, it-rIT, ja-rJP, ko-rKR, pl-rPL, pt-rBR, ru-rRU, tr-rTR, uk-rUA, vi-rVN, zh-rCN, zh-rTW",
         "values": null
       },
       {
