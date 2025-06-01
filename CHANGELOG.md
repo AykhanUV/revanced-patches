@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/AykhanUV/revanced-patches/compare/v1.3.0...v1.4.0) (2025-06-01)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([9e26906](https://github.com/AykhanUV/revanced-patches/commit/9e26906a74378a273f2114289ddd59ed9a497661))
+* **YouTube - Swipe controls:** Add more customizations ([77ef9f3](https://github.com/AykhanUV/revanced-patches/commit/77ef9f346adb875659fd16b45273f4e02b512869))
+* **YouTube:** Add support for a wider range of versions (up to 20.16) ([3f11442](https://github.com/AykhanUV/revanced-patches/commit/3f11442dbb23a7f5d52ed9115e26bc2b9ddee998))
+
 # [1.3.0](https://github.com/AykhanUV/revanced-patches/compare/v1.2.0...v1.3.0) (2025-05-28)
 
 
