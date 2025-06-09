@@ -1,3 +1,20 @@
+# [1.5.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.4.0...v1.5.0-dev.1) (2025-06-09)
+
+
+### Bug Fixes
+
+* **YouTube Music:** 8.16+ crashed on like/dislike ([8ead894](https://github.com/AykhanUV/revanced-patches/commit/8ead8944f7e3e8a6bb54d26a718b5d5de91b7421))
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([5f79c77](https://github.com/AykhanUV/revanced-patches/commit/5f79c7764010b1c2e0ab6cce40482f94346201e5))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add "Hide preview comment" option ([981aba1](https://github.com/AykhanUV/revanced-patches/commit/981aba1fc26207f3eada2499d44feb35637b65b8))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([155a711](https://github.com/AykhanUV/revanced-patches/commit/155a7113938f4a71f6337caf24d87feb2bc5c564))
+* **YouTube - Shorts components:** Add `Hide new posts button` setting ([91fbc59](https://github.com/AykhanUV/revanced-patches/commit/91fbc597e14e0886949d0a720b3e8475d4d5632f))
+* **YouTube Music:** Add support for a wider range of versions (up to 8.18) ([51ddcc5](https://github.com/AykhanUV/revanced-patches/commit/51ddcc51c69ddd5b59d011a37b2580f5e10c3338))
+* **YouTube:** Add support for a wider range of versions (up to 20.21) ([e33f4d6](https://github.com/AykhanUV/revanced-patches/commit/e33f4d6fee9eeafdb0baa002d996044091793d11))
+
 # [1.4.0](https://github.com/AykhanUV/revanced-patches/compare/v1.3.0...v1.4.0) (2025-06-01)
 
 
