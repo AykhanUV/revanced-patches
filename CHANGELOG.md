@@ -1,3 +1,17 @@
+# [1.5.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2025-06-13)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** The `Replace Create button` setting did not update the icon in some versions ([8bfbc96](https://github.com/AykhanUV/revanced-patches/commit/8bfbc96868c3297b5dd54fe3c6803f98b5aff0de))
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([42abae3](https://github.com/AykhanUV/revanced-patches/commit/42abae384ed61128eb3cb4353cfda031d10870e3))
+* **YouTube - Hide player buttons:** Add `Hide player control buttons background` setting ([30a50dd](https://github.com/AykhanUV/revanced-patches/commit/30a50ddd11c601c3e13958655c68779426e26cbd))
+* **YouTube - Shorts Components:** Add `Hide hashtag button` setting ([acb8db8](https://github.com/AykhanUV/revanced-patches/commit/acb8db80f6ff9a29b3b0bc55e88ff4efb5ae9f52))
+
 # [1.5.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2025-06-09)
 
 
