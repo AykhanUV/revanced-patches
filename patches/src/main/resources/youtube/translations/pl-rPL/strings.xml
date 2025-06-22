@@ -19,7 +19,7 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX, włącz Cloud Messaging.</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. 
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube.
 
 Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
 
@@ -371,7 +371,7 @@ Kliknij i przytrzymaj przycisk 'Więcej', by wyświetlić okno z własnymi akcja
     <string name="revanced_enable_shorts_time_stamp_summary_off">Wyłączony</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Włączony
 
-Ograniczenia: 
+Ograniczenia:
 • Ustawienie nie tylko włącza czas, lecz także pozwala użytkownikom ukryć interfejs po kliknięciu tła odtwarzacza
 • Jako, że jest to funkcja w fazie rozwoju przez Google, układ aplikacji może być uszkodzony"</string>
     <string name="revanced_enable_shorts_time_stamp_title">Czas Shortsa</string>
@@ -534,6 +534,9 @@ Informacje:
     <string name="revanced_hide_album_card_summary_off">Widoczne</string>
     <string name="revanced_hide_album_card_summary_on">Ukryte</string>
     <string name="revanced_hide_album_card_title">Karty albumów</string>
+    <string name="revanced_hide_ask_button_summary_off">Przycisk Zapytaj jest widoczny</string>
+    <string name="revanced_hide_ask_button_summary_on">Przycisk Zapytaj jest ukryty</string>
+    <string name="revanced_hide_ask_button_title">Ukryj Zapytaj</string>
     <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
     <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
     <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
@@ -2299,6 +2302,7 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_error_no_language_selected">Nie wybrano języka</string>
     <string name="revanced_yandex_error_no_subs_for_language">Napisy nie są dostępne w %s</string>
     <string name="revanced_yandex_error_no_subs_returned">Brak dostępnych ścieżek napisów</string>
+    <string name="revanced_yandex_error_server_try_again">Pojawił się błąd podczas transkrypcji, spróbuj ponownie później.</string>
     <string name="revanced_yandex_error_subs_parsing_failed">Nie udało się przetworzyć treści napisów w formacie JSON</string>
     <string name="revanced_yandex_error_subs_processing_failed">Błąd przetwarzania treści napisów</string>
     <string name="revanced_yandex_error_subs_stuck_processing">Błąd wewnętrzny: przetwarzanie napisów nie powiodło się</string>
@@ -2311,6 +2315,7 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
     <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
+    <string name="revanced_yandex_status_transcription_delayed">Transkrypcja jest lekko opóźniona</string>
     <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
     <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en), rosyjskim (ru) i kazachskim (kk). Jeśli wprowadzisz inny kod języka lub użyjesz „Język aplikacji” (co stanowi domyślny język aplikacji), Gemini zostanie poproszone o przetłumaczenie (wymagany jest klucz API).</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
