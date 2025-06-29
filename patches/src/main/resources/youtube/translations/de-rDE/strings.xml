@@ -474,6 +474,9 @@ Info:
     <string name="revanced_hide_album_card_summary_off">Albumkarten werden angezeigt.</string>
     <string name="revanced_hide_album_card_summary_on">Albumkarten werden ausgeblendet.</string>
     <string name="revanced_hide_album_card_title">Albumkarten ausblenden</string>
+    <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
+    <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
+    <string name="revanced_hide_ask_button_title">Ask ausblenden</string>
     <string name="revanced_hide_ask_section_summary_off">Ask Abschnitt wird angezeigt</string>
     <string name="revanced_hide_ask_section_summary_on">Ask Abschnitt ist ausgeblendet</string>
     <string name="revanced_hide_ask_section_title">Ask ausblenden</string>
@@ -763,6 +766,9 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_player_collapse_button_summary_off">Schaltfläche \"Ausklappen\" wird angezeigt.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Schaltfläche \"Ausklappen\" wird ausgeblendet.</string>
     <string name="revanced_hide_player_collapse_button_title">Schaltfläche „Ausklappen” ausblenden</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">Hintergrund der Player-Steuerungstasten wird angezeigt</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">Hintergrund der Player-Steuerungstasten ist ausgeblendet</string>
+    <string name="revanced_hide_player_control_buttons_background_title">Hintergrund der Player-Steuerungstasten ausblenden</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient-Modus wird angezeigt.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient-Modus ist versteckt.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ambient-Modus ausblenden</string>
@@ -1016,6 +1022,9 @@ Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderung
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Green-Screen-Button wird angezeigt.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Green-Screen-Button ist ausgeblendet.</string>
     <string name="revanced_hide_shorts_green_screen_button_title">Green-Screen-Button ausblenden</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag Button wird angezeigt</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag Button ist ausgeblendet</string>
+    <string name="revanced_hide_shorts_hashtag_button_title">Hashtag Button ausblenden</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Infokarten werden angezeigt.</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Infokarten werden ausgeblendet.</string>
     <string name="revanced_hide_shorts_info_panel_title">Info-Panels ausblenden</string>
@@ -1046,6 +1055,9 @@ Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderung
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Button-Hintergrund wird angezeigt.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Button-Hintergrund wird ausgeblendet.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Wiedergabe &amp; Pause Hintergrund ausblenden</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Vorschaukommentar wird angezeigt</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
+    <string name="revanced_hide_shorts_preview_comment_title">Kommentarvorschau ausblenden</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix-Schaltfläche wird angezeigt.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix button is hidden.</string>
     <string name="revanced_hide_shorts_remix_button_title">Verstecke Remix Button</string>

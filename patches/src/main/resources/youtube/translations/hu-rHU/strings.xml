@@ -463,6 +463,9 @@ Információ:
     <string name="revanced_hide_album_card_summary_off">Az album kártyák láthatóak.</string>
     <string name="revanced_hide_album_card_summary_on">Az album kártyák el vannak rejtve.</string>
     <string name="revanced_hide_album_card_title">Album kártyák elrejtése</string>
+    <string name="revanced_hide_ask_button_summary_off">Az Ask gomb látható</string>
+    <string name="revanced_hide_ask_button_summary_on">Az Ask gomb el van rejtve</string>
+    <string name="revanced_hide_ask_button_title">Ask elrejtése</string>
     <string name="revanced_hide_ask_section_summary_off">A kérdezés szakasz megjelenik</string>
     <string name="revanced_hide_ask_section_summary_on">A kérdezés szakasz el van rejtve</string>
     <string name="revanced_hide_ask_section_title">Kérdezés elrejtése</string>
@@ -759,6 +762,9 @@ Lehet, hogy ez a szűrő már nem működik, használd helyette a szűrés néze
     <string name="revanced_hide_player_collapse_button_summary_off">Az összecsukás gomb látható.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Az összecsukás gomb el van rejtve.</string>
     <string name="revanced_hide_player_collapse_button_title">Összecsukás gomb elrejtése</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">A lejátszó vezérlőgombjainak háttere látható</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">A lejátszó vezérlőgombjainak háttere rejtve</string>
+    <string name="revanced_hide_player_control_buttons_background_title">A lejátszó vezérlőgombjainak hátterének elrejtése</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">A \'Mozifilmes világítás\' menü látható.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">A \'Mozifilmes világítás\' menü el van rejtve.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">\'Mozifilmes világítás\' menü elrejtése</string>
@@ -1014,6 +1020,9 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
     <string name="revanced_hide_shorts_green_screen_button_summary_off">A zöld képernyő gomb látható.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">A zöld képernyő gomb el van rejtve.</string>
     <string name="revanced_hide_shorts_green_screen_button_title">Zöld képernyő gomb elrejtése</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_off">A Hashtag gomb látható</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_on">A Hashtag gomb el van rejtve</string>
+    <string name="revanced_hide_shorts_hashtag_button_title">A hashtag gomb elrejtése</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Az infó panelek láthatóak.</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Az info panelek el vannak rejtve.</string>
     <string name="revanced_hide_shorts_info_panel_title">Infó panelek elrejtése</string>
@@ -1044,6 +1053,9 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">A lejátszás és szünet gombok háttere látható.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">A lejátszás és szünet gombok háttere el van rejtve.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Lejátszás és szünet gombok hátterének elrejtése</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">Megjelenik a megjegyzés előnézete</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">Az előnézeti megjegyzés rejtve van</string>
+    <string name="revanced_hide_shorts_preview_comment_title">Elrejtés előnézeti megjegyzés</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">A remix gomb látható.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">A remix gomb el van rejtve.</string>
     <string name="revanced_hide_shorts_remix_button_title">Remix gomb elrejtése</string>
