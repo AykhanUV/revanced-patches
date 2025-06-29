@@ -1,3 +1,15 @@
+# [1.5.0-dev.4](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2025-06-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide feed components:** Fix the issue of related videos overlapping the seekbar in fullscreen mode ([0a66b4d](https://github.com/AykhanUV/revanced-patches/commit/0a66b4d066ca50da9e948e27734ece84cb264bc6))
+
+
+### Features
+
+* **YouTube Music:** Add support for a wider range of versions (up to 8.24) ([09da3c7](https://github.com/AykhanUV/revanced-patches/commit/09da3c7f2b3b8b054b67b28d89eea22110081751))
+
 # [1.5.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2025-06-13)
 
 
