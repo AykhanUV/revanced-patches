@@ -1,3 +1,17 @@
+# [1.5.0-dev.5](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2025-07-17)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Add persistence for floating lyrics search button position across sessions ([985fffb](https://github.com/AykhanUV/revanced-patches/commit/985fffb41f4d429e0e71a5515569b294e9435277))
+* **YouTube:** Fix hiding some elements in newer versions ([0ae3817](https://github.com/AykhanUV/revanced-patches/commit/0ae3817f64c21ae35c80150a22346ccbaf1fcf7e))
+
+
+### Features
+
+* Align with RVX ([v5.7.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.7.1)) ([a409c6a](https://github.com/AykhanUV/revanced-patches/commit/a409c6aa1e45e2c11e1eda096207b8837269608c))
+* **Spotify:** Add `Spoof client` patch ([fa617ee](https://github.com/AykhanUV/revanced-patches/commit/fa617ee2bf8eb983508a6b6b21270440be206afd))
+
 # [1.5.0-dev.4](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2025-06-29)
 
 
