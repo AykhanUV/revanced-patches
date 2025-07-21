@@ -1,3 +1,31 @@
+# [1.5.0](https://github.com/AykhanUV/revanced-patches/compare/v1.4.0...v1.5.0) (2025-07-21)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Add persistence for floating lyrics search button position across sessions ([985fffb](https://github.com/AykhanUV/revanced-patches/commit/985fffb41f4d429e0e71a5515569b294e9435277))
+* **YouTube - Hide feed components:** Fix the issue of related videos overlapping the seekbar in fullscreen mode ([0a66b4d](https://github.com/AykhanUV/revanced-patches/commit/0a66b4d066ca50da9e948e27734ece84cb264bc6))
+* **YouTube - Toolbar components:** The `Replace Create button` setting did not update the icon in some versions ([8bfbc96](https://github.com/AykhanUV/revanced-patches/commit/8bfbc96868c3297b5dd54fe3c6803f98b5aff0de))
+* **YouTube Music:** 8.16+ crashed on like/dislike ([8ead894](https://github.com/AykhanUV/revanced-patches/commit/8ead8944f7e3e8a6bb54d26a718b5d5de91b7421))
+* **YouTube:** Fix hiding some elements in newer versions ([0ae3817](https://github.com/AykhanUV/revanced-patches/commit/0ae3817f64c21ae35c80150a22346ccbaf1fcf7e))
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([5f79c77](https://github.com/AykhanUV/revanced-patches/commit/5f79c7764010b1c2e0ab6cce40482f94346201e5))
+
+
+### Features
+
+* Align with RVX ([v5.7.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.7.1)) ([a409c6a](https://github.com/AykhanUV/revanced-patches/commit/a409c6aa1e45e2c11e1eda096207b8837269608c))
+* **Spotify:** Add `Change lyrics provider` patch ([42abae3](https://github.com/AykhanUV/revanced-patches/commit/42abae384ed61128eb3cb4353cfda031d10870e3))
+* **Spotify:** Add `Spoof client` patch ([fa617ee](https://github.com/AykhanUV/revanced-patches/commit/fa617ee2bf8eb983508a6b6b21270440be206afd))
+* **YouTube - Hide player buttons:** Add `Hide player control buttons background` setting ([30a50dd](https://github.com/AykhanUV/revanced-patches/commit/30a50ddd11c601c3e13958655c68779426e26cbd))
+* **YouTube - Hide Shorts components:** Add "Hide preview comment" option ([981aba1](https://github.com/AykhanUV/revanced-patches/commit/981aba1fc26207f3eada2499d44feb35637b65b8))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([155a711](https://github.com/AykhanUV/revanced-patches/commit/155a7113938f4a71f6337caf24d87feb2bc5c564))
+* **YouTube - Shorts Components:** Add `Hide hashtag button` setting ([acb8db8](https://github.com/AykhanUV/revanced-patches/commit/acb8db80f6ff9a29b3b0bc55e88ff4efb5ae9f52))
+* **YouTube - Shorts components:** Add `Hide new posts button` setting ([91fbc59](https://github.com/AykhanUV/revanced-patches/commit/91fbc597e14e0886949d0a720b3e8475d4d5632f))
+* **YouTube Music:** Add support for a wider range of versions (up to 8.18) ([51ddcc5](https://github.com/AykhanUV/revanced-patches/commit/51ddcc51c69ddd5b59d011a37b2580f5e10c3338))
+* **YouTube Music:** Add support for a wider range of versions (up to 8.24) ([09da3c7](https://github.com/AykhanUV/revanced-patches/commit/09da3c7f2b3b8b054b67b28d89eea22110081751))
+* **YouTube:** Add support for a wider range of versions (up to 20.21) ([e33f4d6](https://github.com/AykhanUV/revanced-patches/commit/e33f4d6fee9eeafdb0baa002d996044091793d11))
+* **YouTube:** Change default settings ([faa2c3f](https://github.com/AykhanUV/revanced-patches/commit/faa2c3fab01dd8c729ec45efab00d78a55e6ef06))
+
 # [1.5.0-dev.5](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2025-07-17)
 
 
