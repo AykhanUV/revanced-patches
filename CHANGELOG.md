@@ -1,3 +1,20 @@
+# [1.6.0](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0...v1.6.0) (2025-08-04)
+
+
+### Bug Fixes
+
+* **YouTube Music - Navigation bar components:** Samples tab opens on back press when 'Replace Samples button' is enabled (v8.18+) ([162fee2](https://github.com/AykhanUV/revanced-patches/commit/162fee28619f88b1b263e05065c6ec0066a06f75))
+* **YouTube:** Allow API key export for `Return YouTube Username` (⚠️ Do not share API keys with anyone) ([6118727](https://github.com/AykhanUV/revanced-patches/commit/61187277d3ddc158d03447b03402080c9d077dbf))
+
+
+### Features
+
+* Align with RVX [[v5.8.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.8.1)] ([ef1f9d5](https://github.com/AykhanUV/revanced-patches/commit/ef1f9d5f76be3523231abeb98bf1a0daf54b898a))
+* **Spotify - Custom theme:** Add `Icon color` and `Enable secondary background color` patch options ([eff5628](https://github.com/AykhanUV/revanced-patches/commit/eff562864918ad91dd544a28926b413440b17871))
+* **YouTube - Gemini:** Update model to Gemini 2.5 Flash ([#1148](https://github.com/AykhanUV/revanced-patches/issues/1148)) ([fa2bc0a](https://github.com/AykhanUV/revanced-patches/commit/fa2bc0a5d8e995a33ae04941418d22fa4b3578eb))
+* **YouTube - Hide feed components:** Add `Hide "Most relevant" shelf` setting ([af35033](https://github.com/AykhanUV/revanced-patches/commit/af35033531016eb64c693b81021f9a5d196ab002))
+* **YouTube - Overlay buttons:** Use modern dialog for the second downloader on long press ([6868dd3](https://github.com/AykhanUV/revanced-patches/commit/6868dd3df572b6891e4d2b081d78a65d392186a8))
+
 # [1.5.0](https://github.com/AykhanUV/revanced-patches/compare/v1.4.0...v1.5.0) (2025-07-21)
 
 
