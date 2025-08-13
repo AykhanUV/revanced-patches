@@ -831,6 +831,9 @@ Shorts 플레이어 배경을 누르면 상태바 및 플레이어 구성요소�
     <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 표시됩니다.</string>
     <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다.</string>
     <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
+    <string name="revanced_hide_most_relevant_shelf_summary_off">구독 피드에서 관련성 선반이 표시됩니다.</string>
+    <string name="revanced_hide_most_relevant_shelf_summary_on">구독 피드에서 관련성 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_most_relevant_shelf_title">관련성 선반 숨기기</string>
     <string name="revanced_hide_movie_shelf_summary_off">영화 선반이 표시됩니다.</string>
     <string name="revanced_hide_movie_shelf_summary_on">영화 선반이 숨겨집니다.</string>
     <string name="revanced_hide_movie_shelf_title">영화 선반 숨기기</string>
