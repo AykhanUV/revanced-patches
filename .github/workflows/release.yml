@@ -25,6 +25,9 @@ jobs:
           # https://github.com/cycjimmy/semantic-release-action#private-packages
           persist-credentials: false
           fetch-depth: 0
+          
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -33,7 +36,7 @@ jobs:
           java-version: "17"
 
       - name: Cache Gradle
-        uses: burrunan/gradle-cache-action@v3
+        uses: burrunan/gradle-cache-action@v2
 
       - name: Build
         env:
