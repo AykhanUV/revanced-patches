@@ -1,3 +1,28 @@
+# [1.7.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.6.0...v1.7.0-dev.1) (2025-08-28)
+
+
+### Bug Fixes
+
+* **YouTube - Disable forced auto audio tracks:** Disable the A/B feature flag that forces localized audio ([3dd22e2](https://github.com/AykhanUV/revanced-patches/commit/3dd22e26ff53c5d9eb26678dbe31263ddb4ffb3a))
+* **YouTube - Overlay buttons:** Correctly display Gemini and Yandex transcriptions by adding the missing layout ([3c60b7e](https://github.com/AykhanUV/revanced-patches/commit/3c60b7ea3afdcbf127beec204cad0686aa5b9bbb))
+* **YouTube Music:** revert old defaults ([a775818](https://github.com/AykhanUV/revanced-patches/commit/a77581883f1ef1a87e95ad64276c7e0a90c57f9d))
+* **YouTube:** revert old defaults ([982c574](https://github.com/AykhanUV/revanced-patches/commit/982c574c4da96ea1a4144de08632afee4866986c))
+
+
+### Features
+
+* Align with RVX [[v5.10.1-dev.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1-dev.1)] ([87cbf07](https://github.com/AykhanUV/revanced-patches/commit/87cbf07cea31d3448ed538df6f385d53679bb550))
+* Align with RVX [[v5.10.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1-dev.2)] ([54ace5d](https://github.com/AykhanUV/revanced-patches/commit/54ace5dc89fb49a523d6b03e14a290e84be683d6))
+* Align with RVX [[v5.9.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1-dev.3)] ([7fd0d65](https://github.com/AykhanUV/revanced-patches/commit/7fd0d6545375ee944b454a6e0cca9e3ad8cf81e5))
+* Align with RVX [[v5.9.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.9.1)] ([76723fa](https://github.com/AykhanUV/revanced-patches/commit/76723fa75b1d48144aa2adbb66f15ddb59f4e29f))
+* **Spotify - Custom theme:** Add `Minimal icon` patch option ([c57f167](https://github.com/AykhanUV/revanced-patches/commit/c57f167f2e80b18901c5d7efb0aab38bc2e7f6cf))
+* **Spotify:** Add support for `v9.0.66+` ([12214e7](https://github.com/AykhanUV/revanced-patches/commit/12214e7ff41dfe4ae87833bdb21a5bf3346fbe13))
+* **YouTube - Hide action buttons:** Add `Hide Hype button` setting ([484499b](https://github.com/AykhanUV/revanced-patches/commit/484499b2d8437a4ff5e63bfede21caafcd6435ac))
+* **YouTube - Hide action buttons:** Add `Hide Promote button` setting ([8d4771a](https://github.com/AykhanUV/revanced-patches/commit/8d4771a20507c6f5e93eb21afb1e213e56d073b2))
+* **YouTube - Overlay buttons:** Make Gemini/Yandex transcription subtitle overlay draggable on long press ([bd89e80](https://github.com/AykhanUV/revanced-patches/commit/bd89e805c9fef3be7f615891b6b775827ba6d6e0))
+* **YouTube - Shorts components:** Add `Hide comments panel` setting ([9c3b606](https://github.com/AykhanUV/revanced-patches/commit/9c3b6062b69d2384d32c0baa8854aefb23cf4a31))
+* **YouTube - Swipe controls:** Add swipe distance settings for sensitivity adjustments ([f879c45](https://github.com/AykhanUV/revanced-patches/commit/f879c459803e319a30c6855747e30c06c41009c5))
+
 # [1.6.0](https://github.com/AykhanUV/revanced-patches/compare/v1.5.0...v1.6.0) (2025-08-04)
 
 
