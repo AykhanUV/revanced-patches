@@ -6,6 +6,9 @@ on:
     branches:
       - dev
 
+permissions:
+  contents: read
+
 jobs:
   release:
     name: Build
@@ -24,7 +27,7 @@ jobs:
           java-version: "17"
 
       - name: Cache Gradle
-        uses: burrunan/gradle-cache-action@v2
+        uses: burrunan/gradle-cache-action@v3
 
       - name: Build
         env:
