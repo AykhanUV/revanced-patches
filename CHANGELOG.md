@@ -1,3 +1,12 @@
+# [1.7.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0-dev.1...v1.7.0-dev.2) (2025-08-31)
+
+
+### Features
+
+* Align with RVX [[v5.10.1-dev.3](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1-dev.3)] ([0c16f48](https://github.com/AykhanUV/revanced-patches/commit/0c16f48641b51d694c27f73e7b320d8c50f2b446))
+* Align with RVX [[v5.10.1-dev.4](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1-dev.4)] ([ac92533](https://github.com/AykhanUV/revanced-patches/commit/ac925339cca2548a8dfadd55b81362d127330806))
+* **YouTube - Queue manager:** Add `Summarize` menu item ([247ca9c](https://github.com/AykhanUV/revanced-patches/commit/247ca9ce75c3e3a11eaed396d58285ad7d29a552))
+
 # [1.7.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.6.0...v1.7.0-dev.1) (2025-08-28)
 
 
