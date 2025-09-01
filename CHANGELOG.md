@@ -1,3 +1,10 @@
+# [1.7.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0-dev.2...v1.7.0-dev.3) (2025-09-01)
+
+
+### Features
+
+* Align with RVX [[v5.10.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.10.1)] ([09e07ec](https://github.com/AykhanUV/revanced-patches/commit/09e07ecafa08ee002c05e34275cb35c617c0832e))
+
 # [1.7.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0-dev.1...v1.7.0-dev.2) (2025-08-31)
 
 
