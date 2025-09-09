@@ -1,3 +1,15 @@
+# [1.8.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0...v1.8.0-dev.1) (2025-09-09)
+
+
+### Bug Fixes
+
+* **YouTube:** Address small inconsistencies that caused the app to crash ([4a06d23](https://github.com/AykhanUV/revanced-patches/commit/4a06d23720e7a1bc33f75f18e56ab83b8086960b))
+
+
+### Features
+
+* Align with RVX [[v5.11.1-dev.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.11.1-dev.1)] ([df6b2cf](https://github.com/AykhanUV/revanced-patches/commit/df6b2cf29735c2b81737f804e34effffc6c09850))
+
 # [1.7.0](https://github.com/AykhanUV/revanced-patches/compare/v1.6.0...v1.7.0) (2025-09-02)
 
 
