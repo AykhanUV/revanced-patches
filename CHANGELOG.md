@@ -1,3 +1,11 @@
+# [1.8.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.8.0-dev.1...v1.8.0-dev.2) (2025-09-15)
+
+
+### Features
+
+* Align with RVX [[v5.11.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.11.1-dev.2)] ([e9acc52](https://github.com/AykhanUV/revanced-patches/commit/e9acc525fa7b4addfa1b02267a588de523e87125))
+* **YouTube - Description components:** Add `Hide Hype points` setting ([89787ee](https://github.com/AykhanUV/revanced-patches/commit/89787eeb8b9929372e0e2e92812678229cea3d90))
+
 # [1.8.0-dev.1](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0...v1.8.0-dev.1) (2025-09-09)
 
 
