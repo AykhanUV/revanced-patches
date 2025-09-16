@@ -1,3 +1,16 @@
+# [1.8.0-dev.3](https://github.com/AykhanUV/revanced-patches/compare/v1.8.0-dev.2...v1.8.0-dev.3) (2025-09-16)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove broken `Spoof client` patch ([c7e65f9](https://github.com/AykhanUV/revanced-patches/commit/c7e65f92e3cb34f6119c2831d43ca6defc4372ce))
+
+
+### Features
+
+* Align with RVX [[v5.11.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.11.1)] ([e598a25](https://github.com/AykhanUV/revanced-patches/commit/e598a250ca5d9c555d06af59e2e3b8bf06902040))
+* **YouTube - Feed components:** Add `Hide subscriptions section header` setting ([6e450f8](https://github.com/AykhanUV/revanced-patches/commit/6e450f879621b84718c5322c0444ad0a4491c198))
+
 # [1.8.0-dev.2](https://github.com/AykhanUV/revanced-patches/compare/v1.8.0-dev.1...v1.8.0-dev.2) (2025-09-15)
 
 
