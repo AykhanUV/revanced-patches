@@ -3,7 +3,7 @@ revanced-patcher = "21.0.0"
 # Tracking https://github.com/google/smali/issues/64.
 #noinspection GradleDependency
 smali = "3.0.5"
-gson = "2.13.1"
+gson = "2.13.2"
 agp = "8.2.2"
 annotation = "1.9.1"
 collections4 = "4.5.0"
