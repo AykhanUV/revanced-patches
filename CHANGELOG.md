@@ -1,3 +1,25 @@
+# [1.9.0](https://github.com/AykhanUV/revanced-patches/compare/v1.8.0...v1.9.0) (2025-10-08)
+
+
+### Bug Fixes
+
+* **NetWall - Unlock Premium:** Add signature check bypass to avoid app crashes ([8b29f78](https://github.com/AykhanUV/revanced-patches/commit/8b29f78193dced3a0a419faedfcfb09f4d8c2bc4))
+* **Spotify - Sanitize sharing links:** Bring back original logic ([636022b](https://github.com/AykhanUV/revanced-patches/commit/636022bea9c90d6721257933b12bb5503ea21e9b))
+* **YouTube - Player components:** Hide new end screen cards ([101ed80](https://github.com/AykhanUV/revanced-patches/commit/101ed802a805e1e5cbf8f5059c91ce7b98d01b81))
+* **YouTube - Settings:** Leaving RVX settings crashed the app ([af8169b](https://github.com/AykhanUV/revanced-patches/commit/af8169bc25022dc5d48c445545599d2e12b39a4e))
+* **YouTube:** Remove a dependency patch from the patch list ([62358de](https://github.com/AykhanUV/revanced-patches/commit/62358dede4030710b6dacc9a6f4294dd0dd8d979))
+
+
+### Features
+
+* Align with RVX [[v5.12.1-dev.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.1)] ([8ed7b53](https://github.com/AykhanUV/revanced-patches/commit/8ed7b530a91c29cbc3999bf022fe3cb7742fc76a))
+* Align with RVX [[v5.12.1-dev.2](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.2)] ([5a8c5c3](https://github.com/AykhanUV/revanced-patches/commit/5a8c5c365746e19a6af85bc701034f7fb59f52aa))
+* Align with RVX [[v5.12.1-dev.4](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.4)] ([6a4505b](https://github.com/AykhanUV/revanced-patches/commit/6a4505b65154d197b66ce1085ab81f2f4da303bc))
+* Align with RVX [[v5.12.1-dev.5](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.5)] ([41b3ac5](https://github.com/AykhanUV/revanced-patches/commit/41b3ac543e27a89e123ceb91c624d459c20b74a7))
+* Align with RVX [[v5.12.1-dev.6](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1-dev.6)] ([6f43bbd](https://github.com/AykhanUV/revanced-patches/commit/6f43bbd856d36959557be1f18bbd0d7ad7b0138d))
+* Align with RVX [[v5.12.1](https://github.com/inotia00/revanced-patches/releases/tag/v5.12.1)] ([4e7eff8](https://github.com/AykhanUV/revanced-patches/commit/4e7eff83d3d58aba2a1c7ee3d4c97b90367d040c))
+* **NetWall:** Add `Unlock Premium` patch ([59aeeaa](https://github.com/AykhanUV/revanced-patches/commit/59aeeaa2402a4eb3f66aabf3be389581d0a99a44))
+
 # [1.8.0](https://github.com/AykhanUV/revanced-patches/compare/v1.7.0...v1.8.0) (2025-09-17)
 
 
